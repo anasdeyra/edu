@@ -1,5 +1,6 @@
 import Features from "./Features";
 import Hero from "./Hero";
+import QnA from "./QnA";
 import Testimonials from "./Testimonials";
 
 export default function LandingPage() {
@@ -8,6 +9,7 @@ export default function LandingPage() {
       <Hero />
       <Features />
       <Testimonials />
+      <QnA />
     </>
   );
 }

@@ -5,8 +5,12 @@ import {
   Group,
   ThemeIcon,
   SimpleGrid,
+  Box,
+  Button,
+  Overlay,
 } from "@mantine/core";
 import { FaAward, FaDollarSign, FaHeadset, FaLayerGroup } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Features() {
   return (
@@ -20,6 +24,38 @@ export default function Features() {
           <Feature {...f} key={i} />
         ))}
       </SimpleGrid>
+      <Box
+        mt={72}
+        p={"xl"}
+        sx={{
+          background: `url(${process.env.PUBLIC_URL}/fb.jpg)`,
+          backgroundPosition: "0 -300px",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          display: "flex",
+          height: "300px",
+          borderRadius: "5px",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "relative",
+        }}
+      >
+        <Overlay opacity={0} zIndex={0} blur={3} />
+        <Button
+          to={"/"}
+          component={Link}
+          radius={"sm"}
+          color="indigo"
+          sx={{
+            background: "#3347B0",
+            zIndex: "1",
+          }}
+          size="xl"
+          m={0}
+        >
+          Get your tutor
+        </Button>
+      </Box>
     </Stack>
   );
 }
@@ -31,7 +67,7 @@ function Feature({ Icon, title, text }) {
         <Icon size={24} />
       </ThemeIcon>
       <Stack spacing={0}>
-        <Text size={26} weight={700}>
+        <Text size={26} weight={600}>
           {title}
         </Text>
         <Text weight={500}>{text}</Text>

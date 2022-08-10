@@ -4,7 +4,10 @@ import { Carousel } from "@mantine/carousel";
 export default function Testimonials() {
   return (
     <Stack sx={{ background: "#3347B0", color: "white" }} px={"xl"} py={72}>
-      <Title>What our Students Say</Title>
+      <div>
+        <Text weight={500}>TESTIMONIALS</Text>
+        <Title>What our Students Say</Title>
+      </div>
       <Carousel
         mt={"xl"}
         slideSize="34%"
@@ -34,6 +37,7 @@ function UserCard({ image, name, text, occupation }) {
         background: "white",
         color: "black",
         borderRadius: "5px",
+        height: "200px",
       }}
     >
       <Group>
