@@ -13,10 +13,15 @@ import {
   FaLocationArrow as FaRadiation,
   FaVideo as FaCamera,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function SearchBox() {
   return (
-    <Group p={"xs"} sx={{ background: "white", alignSelf: "start" }} mt={"xl"}>
+    <Group
+      p={"xs"}
+      sx={{ background: "white", alignSelf: "start", borderRadius: "5px" }}
+      mt={48}
+    >
       <Group>
         <Autocomplete
           p={0}
@@ -55,9 +60,9 @@ export default function SearchBox() {
         ></Select>
       </Group>
       <Button
-        href="#"
-        component="a"
-        radius={0}
+        to={"/"}
+        component={Link}
+        radius={"sm"}
         color="indigo"
         sx={{ background: "#3347B0", alignSelf: "start" }}
         size="xl"

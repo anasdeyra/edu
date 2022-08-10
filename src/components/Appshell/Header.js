@@ -1,4 +1,5 @@
 import { Box, createStyles, Text, Button, Group } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((t) => ({
   header: {
@@ -14,19 +15,19 @@ export default function Header() {
   const { classes } = useStyles();
   return (
     <Box px={"xl"} py="sm" className={classes.header}>
-      <Text href="/" component="a" weight={"600"} size={"xl"}>
+      <Text to={"/"} component={Link} weight={"600"} size={"xl"}>
         Mulang
       </Text>
       <Group spacing={64}>
         <Navlinks />
         <Group spacing={"xl"}>
-          <Text size={"sm"} weight={"600"} href="#" component="a">
+          <Text size={"sm"} weight={"600"} to={"/"} component={Link}>
             Login
           </Text>
           <Button
-            href="#"
-            component="a"
-            radius={0}
+            to={"/"}
+            component={Link}
+            radius={"sm"}
             variant="white"
             color={"dark"}
           >
@@ -41,13 +42,13 @@ export default function Header() {
 function Navlinks() {
   return (
     <Group spacing={40} sx={{ color: "white" }}>
-      <Text size={"sm"} href="#" component="a">
+      <Text size={"sm"} to={"/"} component={Link}>
         Home
       </Text>
-      <Text size={"sm"} href="#" component="a">
+      <Text size={"sm"} to={"/about us"} component={Link}>
         About Us
       </Text>
-      <Text size={"sm"} href="#" component="a">
+      <Text size={"sm"} to={"/tutor"} component={Link}>
         Become a Tutor
       </Text>
     </Group>

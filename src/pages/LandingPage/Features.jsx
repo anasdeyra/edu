@@ -17,7 +17,7 @@ export default function Features() {
   return (
     <Stack spacing={"xl"} py={72} px={"xl"}>
       <Stack spacing={0}>
-        <Text>WHY CHOOSE US</Text>
+        <Text weight={500}>WHY CHOOSE US</Text>
         <Title>Why learn with Mulang.</Title>
       </Stack>
       <SimpleGrid mt={"md"} spacing={"xl"} cols={2}>

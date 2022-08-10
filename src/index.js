@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { MantineProvider } from "@mantine/core";
 import Appshell from "./components/Appshell/Appshell";
+import { BrowserRouter } from "react-router-dom";
 
 function Providers({ children }) {
   return (
@@ -15,7 +16,7 @@ function Providers({ children }) {
       withGlobalStyles
       withNormalizeCSS
     >
-      {children}
+      <BrowserRouter>{children}</BrowserRouter>
     </MantineProvider>
   );
 }

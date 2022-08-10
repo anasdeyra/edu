@@ -1,4 +1,5 @@
-import { Box, createStyles, Text, Button, Group } from "@mantine/core";
+import { Box, createStyles, Text, Group } from "@mantine/core";
+import { Link } from "react-router-dom";
 
 const useStyles = createStyles((t) => ({
   header: {
@@ -14,7 +15,7 @@ export default function Footer() {
   const { classes } = useStyles();
   return (
     <Box px={"xl"} py={48} className={classes.header}>
-      <Text href="/" component="a" weight={"600"} size={"xl"}>
+      <Text to={"/"} component={Link} weight={"600"} size={"xl"}>
         Mulang
       </Text>
       <Group spacing={64}>
@@ -27,13 +28,13 @@ export default function Footer() {
 function Navlinks() {
   return (
     <Group spacing={40} sx={{ color: "black", fontWeight: "500" }}>
-      <Text href="#" component="a">
+      <Text to={"/"} component={Link}>
         Home
       </Text>
-      <Text href="#" component="a">
+      <Text to={"/about us"} component={Link}>
         About Us
       </Text>
-      <Text href="#" component="a">
+      <Text to={"/tutor"} component={Link}>
         Become a Tutor
       </Text>
     </Group>

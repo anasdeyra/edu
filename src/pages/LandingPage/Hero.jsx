@@ -1,4 +1,4 @@
-import { Text, Stack, Group, Title, Button } from "@mantine/core";
+import { Text, Stack, Group, Title } from "@mantine/core";
 import { useElementSize } from "@mantine/hooks";
 import SearchBox from "../SearchBox";
 
