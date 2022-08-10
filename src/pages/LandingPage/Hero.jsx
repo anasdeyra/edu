@@ -1,6 +1,6 @@
-import { Text, Stack, Group, Title, Button, Autocomplete } from "@mantine/core";
+import { Text, Stack, Group, Title, Button } from "@mantine/core";
 import { useElementSize } from "@mantine/hooks";
-import { FaSearch } from "react-icons/fa";
+import SearchBox from "../SearchBox";
 
 export default function Hero() {
   const { ref, width } = useElementSize();
@@ -20,40 +20,14 @@ export default function Hero() {
         sx={{ fontSize: 72, maxWidth: 750, fontWeight: "900" }}
         order={1}
       >
-        Here the best tutors for you
+        Hire the best tutors for you
       </Title>
       <Text sx={{ width: width }} weight={500} size={"xl"}>
         Part of you personal and professional growth by providing a fun and
         effective way to learn.{" "}
       </Text>
-      <Button
-        mt={"xl"}
-        href="#"
-        component="a"
-        radius={0}
-        color="indigo"
-        sx={{ background: "#3347B0", alignSelf: "start" }}
-        size="xl"
-      >
-        Register
-      </Button>
 
-      <Autocomplete
-        sx={{ width: width }}
-        mt={"xl"}
-        radius={0}
-        icon={<FaSearch />}
-        placeholder="Search a tutor"
-        dropdownPosition="bottom"
-        data={[
-          "Jamie Navarro",
-          "Fiona Wyatt",
-          "Abby Bond",
-          "Nylah Valencia",
-          "Jayson Patterson",
-        ]}
-        size="xl"
-      ></Autocomplete>
+      <SearchBox />
       <Group px={72} sx={{ color: "white" }} position="apart" mt={32}>
         <Stack sx={{ textAlign: "center" }} spacing={0}>
           <Text weight={800} size={32}>
