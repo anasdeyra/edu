@@ -6,12 +6,7 @@ import {
   ThemeIcon,
   SimpleGrid,
 } from "@mantine/core";
-import {
-  FaAward,
-  FaDollarSign,
-  FaHeadset,
-  FaPuzzlePiece,
-} from "react-icons/fa";
+import { FaAward, FaDollarSign, FaHeadset, FaLayerGroup } from "react-icons/fa";
 
 export default function Features() {
   return (
@@ -36,8 +31,10 @@ function Feature({ Icon, title, text }) {
         <Icon size={24} />
       </ThemeIcon>
       <Stack spacing={0}>
-        <Title order={2}>{title}</Title>
-        <Text>{text}</Text>
+        <Text size={26} weight={700}>
+          {title}
+        </Text>
+        <Text weight={500}>{text}</Text>
       </Stack>
     </Group>
   );
@@ -55,13 +52,13 @@ const FEATURES = [
     Icon: FaDollarSign,
   },
   {
-    title: "Personalized Support",
+    title: "Personalized Learning",
     text: "Sed ut perspiciateis unde omnis iste natus error sit",
-    Icon: FaHeadset,
+    Icon: FaLayerGroup,
   },
   {
     title: "Personalized Support",
     text: "Sed ut perspiciateis unde omnis iste natus error sit",
-    Icon: FaPuzzlePiece,
+    Icon: FaHeadset,
   },
 ];

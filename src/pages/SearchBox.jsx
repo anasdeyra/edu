@@ -19,7 +19,12 @@ export default function SearchBox() {
   return (
     <Group
       p={"xs"}
-      sx={{ background: "white", alignSelf: "start", borderRadius: "5px" }}
+      sx={{
+        background: "white",
+        alignSelf: "start",
+        borderRadius: "5px",
+        zIndex: 1,
+      }}
       mt={48}
     >
       <Group>

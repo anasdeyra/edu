@@ -1,4 +1,4 @@
-import { Text, Stack, Group, Title } from "@mantine/core";
+import { Text, Stack, Group, Title, Overlay } from "@mantine/core";
 import { useElementSize } from "@mantine/hooks";
 import SearchBox from "../SearchBox";
 
@@ -13,22 +13,33 @@ export default function Hero() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        position: "relative",
       }}
     >
+      <Overlay
+        zIndex={0}
+        opacity="0.5"
+        gradient="linear-gradient(0deg, rgba(0,0,0,1) 0%,  rgba(255,255,255,0) 35%);"
+      />
       <Title
         ref={ref}
-        sx={{ fontSize: 72, maxWidth: 750, fontWeight: "900" }}
+        sx={{ fontSize: 72, maxWidth: 750, fontWeight: "900", zIndex: 1 }}
         order={1}
       >
         Hire the best tutors for you
       </Title>
-      <Text sx={{ width: width }} weight={500} size={"xl"}>
+      <Text sx={{ width: width, zIndex: 1 }} weight={500} size={"xl"}>
         Part of you personal and professional growth by providing a fun and
         effective way to learn.{" "}
       </Text>
 
       <SearchBox />
-      <Group px={72} sx={{ color: "white" }} position="apart" mt={32}>
+      <Group
+        px={72}
+        sx={{ color: "white", zIndex: 1 }}
+        position="apart"
+        mt={48}
+      >
         <Stack sx={{ textAlign: "center" }} spacing={0}>
           <Text weight={800} size={32}>
             12 Years
