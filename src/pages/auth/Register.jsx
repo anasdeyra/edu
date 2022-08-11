@@ -46,6 +46,7 @@ export default function Register() {
           />
         </Group>
         <TextInput
+          mt="md"
           type={"email"}
           label="Email"
           placeholder="you@example.com"

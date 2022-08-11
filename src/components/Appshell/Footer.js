@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const useStyles = createStyles((t) => ({
   header: {
-    background: "#0DE3D6",
+    background: "#66FBD1",
     color: "black",
     display: "flex",
     justifyContent: "space-between",
@@ -34,7 +34,7 @@ function Navlinks() {
       <Text to={"/about us"} component={Link}>
         About Us
       </Text>
-      <Text to={"/tutor"} component={Link}>
+      <Text to={"/tutor-signup"} component={Link}>
         Become a Tutor
       </Text>
     </Group>

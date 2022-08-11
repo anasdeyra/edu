@@ -48,7 +48,7 @@ function Navlinks() {
       <Text size={"sm"} to={"/about us"} component={Link}>
         About Us
       </Text>
-      <Text size={"sm"} to={"/tutor"} component={Link}>
+      <Text size={"sm"} to={"/tutor-signup"} component={Link}>
         Become a Tutor
       </Text>
     </Group>
