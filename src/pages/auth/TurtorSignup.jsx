@@ -14,6 +14,7 @@ import {
   useMantineTheme,
   Text,
   NumberInput,
+  Slider,
 } from "@mantine/core";
 import { Dropzone } from "@mantine/dropzone";
 import { useState } from "react";
@@ -29,6 +30,8 @@ export default function TutorSignup() {
     setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
+
+  const [value, setValue] = useState(50);
   return (
     <>
       <Container size={"sm"} my={72}>
@@ -154,13 +157,29 @@ export default function TutorSignup() {
                 data={["Phd", "Bachelor", "Major"]}
                 searchable
               />
-              <NumberInput
-                hideControls
-                required
-                label={"Years of experience"}
-                mt={"md"}
-                placeholder="Experience"
-              />
+              <Input.Wrapper mt={"md"} required label="Years of Experience">
+                <Slider
+                  max={40}
+                  min={0}
+                  hideControls
+                  required
+                  mt={"md"}
+                  placeholder="Experience"
+                  value={value}
+                  onChange={setValue}
+                  marks={[
+                    { value: 20, label: "20" },
+                    { value: 40, label: "40" },
+                    { value: 30, label: "30" },
+                    { value: 10, label: "10" },
+                  ]}
+                  styles={{
+                    bar: { background: "#3347B0" },
+                    thumb: { borderColor: "#3347B0" },
+                    markFilled: { borderColor: "#3347B0" },
+                  }}
+                />
+              </Input.Wrapper>
               <Select
                 required
                 label={"Location"}

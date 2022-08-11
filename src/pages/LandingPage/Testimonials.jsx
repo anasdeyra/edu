@@ -9,7 +9,7 @@ export default function Testimonials() {
         <Title>What our Students Say</Title>
       </div>
       <Carousel
-        mt={"xl"}
+        mt={"48px"}
         slideSize="34%"
         height={200}
         slideGap="md"
