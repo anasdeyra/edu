@@ -1,20 +1,29 @@
 import {
   TextInput,
   PasswordInput,
-  Anchor,
   Paper,
   Title,
-  Text,
   Container,
   Group,
   Button,
   Stepper,
+  Select,
+  Textarea,
+  MultiSelect,
+  Input,
+  useMantineTheme,
+  Text,
 } from "@mantine/core";
+import { Dropzone } from "@mantine/dropzone";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import {
+  FaUpload as IconUpload,
+  FaFileImage as IconPhoto,
+  FaBan as FaStopCircle,
+} from "react-icons/fa";
 
 export default function TutorSignup() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const nextStep = () =>
     setActive((current) => (current < 2 ? current + 1 : current));
   const prevStep = () =>
@@ -22,28 +31,28 @@ export default function TutorSignup() {
   return (
     <>
       <Container size={"xs"} my={72}>
-        <Title
-          align="center"
-          sx={(theme) => ({
-            fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-            fontWeight: 900,
-          })}
-        >
-          Become a tutor
-        </Title>
-        <Text color="dimmed" size="sm" align="center" mt={5}>
-          Already have an account?{" "}
-          <Anchor component={Link} to="/login" size="sm">
-            Login
-          </Anchor>
-        </Text>
-
         <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+          <Title align="center" weigth="700">
+            Become a tutor
+          </Title>
           <Stepper
-            color={"#3347B0"}
+            mt={48}
+            styles={{
+              stepIcon: {
+                borderColor: "#3347B0",
+                "&[data-completed]": {
+                  background: "#3347B0",
+                  borderColor: "#3347B0",
+                },
+                "&[data-progress]": {
+                  borderColor: "#3347B0",
+                },
+              },
+              separatorActive: { background: "#3347B0" },
+            }}
             active={active}
             onStepClick={setActive}
-            breakpoint="sm"
+            breakpoint="xs"
           >
             <Stepper.Step label="First step" description="Create an account">
               <Group grow>
@@ -60,6 +69,17 @@ export default function TutorSignup() {
                   required
                 />
               </Group>
+              <Select
+                mt="md"
+                color="indigo"
+                styles={{
+                  item: { "&[data-selected]": { background: "#3347B0" } },
+                }}
+                placeholder="Select your gender"
+                label="Gender"
+                required
+                data={["Male", "Female"]}
+              ></Select>
               <TextInput
                 mt="md"
                 type={"email"}
@@ -81,11 +101,55 @@ export default function TutorSignup() {
               />
             </Stepper.Step>
             <Stepper.Step label="Second step" description="Fill in information">
-              Step 2 content: Verify email
+              <Textarea
+                mt="md"
+                label="Description"
+                placeholder="Write something about you"
+                required
+              />
+              <MultiSelect
+                required
+                label={"Subjects"}
+                data={["Math", "Physics", "Biologie"]}
+                searchable
+                mt={"md"}
+                placeholder="Subjects"
+              />
+              <Select
+                required
+                label={"Curriculum"}
+                data={["Math", "Physics", "Biologie"]}
+                searchable
+                mt={"md"}
+                placeholder="Curriculum"
+              />
+              <TextInput
+                mt="md"
+                type={"text"}
+                label="Education qualification"
+                placeholder="PhD, Bachelor..."
+                required
+              />
+              <Select
+                required
+                label={"Experience"}
+                data={["Math", "Physics", "Biologie"]}
+                searchable
+                mt={"md"}
+                placeholder="Experience"
+              />{" "}
+              <Input.Wrapper label="Profile picture" mt={"md"}>
+                <InputImage />
+              </Input.Wrapper>
+              <Select
+                required
+                label={"Location"}
+                data={["Math", "Physics", "Biologie"]}
+                searchable
+                mt={"md"}
+                placeholder="Location"
+              />
             </Stepper.Step>
-            <Stepper.Completed>
-              Completed, click back button to get to previous step
-            </Stepper.Completed>
           </Stepper>
           <Group position="center" mt="xl">
             <Button variant="default" onClick={prevStep}>
@@ -102,5 +166,55 @@ export default function TutorSignup() {
         </Paper>
       </Container>
     </>
+  );
+}
+
+function InputImage(props) {
+  const theme = useMantineTheme();
+  return (
+    <Dropzone
+      onDrop={(files) => console.log("accepted files", files)}
+      onReject={(files) => console.log("rejected files", files)}
+      maxSize={2 * 1024 ** 2}
+      accept={{ "image/*": [] }}
+      {...props}
+    >
+      <Group
+        position="center"
+        spacing="xl"
+        style={{ minHeight: 100, pointerEvents: "none" }}
+      >
+        <Dropzone.Accept>
+          <IconUpload
+            size={50}
+            stroke={1.5}
+            color={
+              theme.colors[theme.primaryColor][
+                theme.colorScheme === "dark" ? 4 : 6
+              ]
+            }
+          />
+        </Dropzone.Accept>
+        <Dropzone.Reject>
+          <FaStopCircle
+            size={50}
+            stroke={1.5}
+            color={theme.colors.red[theme.colorScheme === "dark" ? 4 : 6]}
+          />
+        </Dropzone.Reject>
+        <Dropzone.Idle>
+          <IconPhoto size={50} stroke={1.5} />
+        </Dropzone.Idle>
+
+        <div>
+          <Text size="xl" inline>
+            Drag images here or click to select files
+          </Text>
+          <Text size="sm" color="dimmed" inline mt={7}>
+            Attach as many files as you like, each file should not exceed 2mb
+          </Text>
+        </div>
+      </Group>
+    </Dropzone>
   );
 }

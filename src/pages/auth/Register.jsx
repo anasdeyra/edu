@@ -14,23 +14,10 @@ import { Link } from "react-router-dom";
 export default function Register() {
   return (
     <Container size={"xs"} my={72}>
-      <Title
-        align="center"
-        sx={(theme) => ({
-          fontFamily: `Greycliff CF, ${theme.fontFamily}`,
-          fontWeight: 900,
-        })}
-      >
-        Welcome to Mulang
-      </Title>
-      <Text color="dimmed" size="sm" align="center" mt={5}>
-        Already have an account?{" "}
-        <Anchor component={Link} to="/login" size="sm">
-          Login
-        </Anchor>
-      </Text>
-
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+        <Title mb={48} align="center" weigth="700">
+          Welcome to Mulang
+        </Title>
         <Group grow>
           <TextInput
             type={"text"}
@@ -73,6 +60,12 @@ export default function Register() {
         >
           Sign up
         </Button>
+        <Text color="dimmed" size="sm" align="center" mt={"md"}>
+          Already have an account?{" "}
+          <Anchor component={Link} to="/login" size="sm">
+            Login
+          </Anchor>
+        </Text>
       </Paper>
     </Container>
   );
