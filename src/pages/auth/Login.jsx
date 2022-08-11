@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 
 export function Login() {
   return (
-    <Container size={420} my={72}>
+    <Container size={"xs"} my={72}>
       <Title
         align="center"
         sx={(theme) => ({
