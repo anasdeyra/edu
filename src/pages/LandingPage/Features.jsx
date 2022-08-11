@@ -14,12 +14,12 @@ import { Link } from "react-router-dom";
 
 export default function Features() {
   return (
-    <Stack sx={{ background: "#66FBD1" }} spacing={"xl"} py={144} px={"xl"}>
-      <Stack spacing={0}>
+    <Stack sx={{ background: "#66FBD1" }} spacing={"xl"} py={144}>
+      <Stack px={"xl"} spacing={0}>
         <Text weight={500}>WHY CHOOSE US</Text>
         <Title>Why learn with Mulang.</Title>
       </Stack>
-      <SimpleGrid mt={48} spacing={"64px"} cols={2}>
+      <SimpleGrid px={"xl"} mt={48} spacing={"64px"} cols={2}>
         {FEATURES.map((f, i) => (
           <Feature {...f} key={i} />
         ))}
@@ -29,11 +29,11 @@ export default function Features() {
         p={"xl"}
         sx={{
           background: `url(${process.env.PUBLIC_URL}/fb.jpg)`,
-          backgroundPosition: "0 -300px",
+          backgroundPosition: "0 -200px",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           display: "flex",
-          height: "300px",
+          height: "500px",
           borderRadius: "5px",
           justifyContent: "center",
           alignItems: "center",
@@ -47,12 +47,12 @@ export default function Features() {
           radius={"sm"}
           color="indigo"
           sx={{
-            background: "#66FBD1",
+            background: "#000",
             zIndex: "1",
             "&:hover": {
-              background: "#60F5C5",
+              background: "#000",
             },
-            color: "black",
+            color: "white",
           }}
           size="xl"
           m={0}
