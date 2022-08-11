@@ -67,10 +67,10 @@ function Feature({ Icon, title, text }) {
         <Icon size={24} />
       </ThemeIcon>
       <Stack spacing={0}>
-        <Text size={26} weight={600}>
+        <Text size={26} weight={500}>
           {title}
         </Text>
-        <Text weight={500}>{text}</Text>
+        <Text color={"dimmed"}>{text}</Text>
       </Stack>
     </Group>
   );
