@@ -3,8 +3,8 @@ import React from "react";
 
 export default function QnA() {
   return (
-    <SimpleGrid cols={2}>
-      <Box pl="xl" py={72}>
+    <SimpleGrid mb={144} cols={2}>
+      <Box pl="xl" mb={144} mt={72}>
         <Text weight={500}>FREQUENTLY ASKED QUESTIONS</Text>
         <Title>Useful information</Title>
 

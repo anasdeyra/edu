@@ -14,18 +14,18 @@ import { Link } from "react-router-dom";
 
 export default function Features() {
   return (
-    <Stack spacing={"xl"} py={72} px={"xl"}>
+    <Stack sx={{ background: "#66FBD1" }} spacing={"xl"} py={144} px={"xl"}>
       <Stack spacing={0}>
         <Text weight={500}>WHY CHOOSE US</Text>
         <Title>Why learn with Mulang.</Title>
       </Stack>
-      <SimpleGrid mt={"md"} spacing={"xl"} cols={2}>
+      <SimpleGrid mt={48} spacing={"64px"} cols={2}>
         {FEATURES.map((f, i) => (
           <Feature {...f} key={i} />
         ))}
       </SimpleGrid>
       <Box
-        mt={72}
+        mt={128}
         p={"xl"}
         sx={{
           background: `url(${process.env.PUBLIC_URL}/fb.jpg)`,
@@ -47,8 +47,12 @@ export default function Features() {
           radius={"sm"}
           color="indigo"
           sx={{
-            background: "#3347B0",
+            background: "#66FBD1",
             zIndex: "1",
+            "&:hover": {
+              background: "#60F5C5",
+            },
+            color: "black",
           }}
           size="xl"
           m={0}
@@ -63,14 +67,19 @@ export default function Features() {
 function Feature({ Icon, title, text }) {
   return (
     <Group>
-      <ThemeIcon color={"#3347B0"} radius={"50%"} size={48}>
-        <Icon size={24} />
+      <ThemeIcon
+        sx={{ color: "#66FBD1" }}
+        color={"#000"}
+        radius={"50%"}
+        size={64}
+      >
+        <Icon size={32} />
       </ThemeIcon>
       <Stack spacing={0}>
         <Text size={26} weight={500}>
           {title}
         </Text>
-        <Text color={"dimmed"}>{text}</Text>
+        <Text>{text}</Text>
       </Stack>
     </Group>
   );

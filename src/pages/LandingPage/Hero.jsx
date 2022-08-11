@@ -7,7 +7,8 @@ export default function Hero() {
   return (
     <Stack
       p={"xl"}
-      py={72}
+      pt={144}
+      pb={72}
       sx={{
         background: `url(${process.env.PUBLIC_URL}/tb.jpg)`,
         backgroundPosition: "center",
@@ -38,7 +39,7 @@ export default function Hero() {
         px={72}
         sx={{ color: "white", zIndex: 1 }}
         position="apart"
-        mt={48}
+        mt={144}
       >
         <Stack sx={{ textAlign: "center" }} spacing={0}>
           <Text weight={800} size={32}>

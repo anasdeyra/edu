@@ -3,7 +3,7 @@ import { Carousel } from "@mantine/carousel";
 
 export default function Testimonials() {
   return (
-    <Stack sx={{ background: "#3347B0", color: "white" }} px={"xl"} py={72}>
+    <Stack sx={{ background: "#3347B0", color: "white" }} px={"xl"} py={144}>
       <div>
         <Text weight={500}>TESTIMONIALS</Text>
         <Title>What our Students Say</Title>

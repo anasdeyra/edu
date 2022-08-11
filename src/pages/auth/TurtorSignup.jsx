@@ -13,6 +13,7 @@ import {
   Input,
   useMantineTheme,
   Text,
+  NumberInput,
 } from "@mantine/core";
 import { Dropzone } from "@mantine/dropzone";
 import { useState } from "react";
@@ -25,37 +26,40 @@ import {
 export default function TutorSignup() {
   const [active, setActive] = useState(0);
   const nextStep = () =>
-    setActive((current) => (current < 2 ? current + 1 : current));
+    setActive((current) => (current < 3 ? current + 1 : current));
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
   return (
     <>
-      <Container size={"xs"} my={72}>
-        <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-          <Title align="center" weigth="700">
-            Become a tutor
-          </Title>
-          <Stepper
-            mt={48}
-            styles={{
-              stepIcon: {
+      <Container size={"sm"} my={72}>
+        <Title align="center" weigth="700">
+          Become a tutor
+        </Title>
+        <Stepper
+          mt={48}
+          styles={{
+            stepIcon: {
+              borderColor: "#3347B0",
+              "&[data-completed]": {
+                background: "#3347B0",
                 borderColor: "#3347B0",
-                "&[data-completed]": {
-                  background: "#3347B0",
-                  borderColor: "#3347B0",
-                },
-                "&[data-progress]": {
-                  borderColor: "#3347B0",
-                },
               },
-              separatorActive: { background: "#3347B0" },
-            }}
-            active={active}
-            onStepClick={setActive}
-            breakpoint="xs"
-          >
-            <Stepper.Step label="First step" description="Create an account">
-              <Group grow>
+              "&[data-progress]": {
+                borderColor: "#3347B0",
+              },
+            },
+            separatorActive: { background: "#3347B0" },
+          }}
+          active={active}
+          onStepClick={setActive}
+          breakpoint="xs"
+        >
+          <Stepper.Step label="First step" description="Create an account">
+            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+              <Text mb={48} mt={"xl"} align="center" weight={"600"} size="26px">
+                Create an account
+              </Text>
+              <Group mt="md" grow>
                 <TextInput
                   type={"text"}
                   label="First name"
@@ -99,13 +103,31 @@ export default function TutorSignup() {
                 required
                 mt="md"
               />
-            </Stepper.Step>
-            <Stepper.Step label="Second step" description="Fill in information">
+              <Group position="center" mt="xl">
+                <Button variant="default" onClick={prevStep}>
+                  Back
+                </Button>
+                <Button
+                  sx={{ background: "#3347B0" }}
+                  color={"indigo"}
+                  onClick={nextStep}
+                >
+                  Next step
+                </Button>
+              </Group>
+            </Paper>
+          </Stepper.Step>
+          <Stepper.Step label="Second step" description="Fill in information">
+            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+              <Text mb={48} mt={"xl"} align="center" weight={"600"} size="26px">
+                Fill in information
+              </Text>
               <Textarea
                 mt="md"
-                label="Description"
+                label="Profile description"
                 placeholder="Write something about you"
                 required
+                minRows={4}
               />
               <MultiSelect
                 required
@@ -115,7 +137,7 @@ export default function TutorSignup() {
                 mt={"md"}
                 placeholder="Subjects"
               />
-              <Select
+              <MultiSelect
                 required
                 label={"Curriculum"}
                 data={["Math", "Physics", "Biologie"]}
@@ -123,24 +145,22 @@ export default function TutorSignup() {
                 mt={"md"}
                 placeholder="Curriculum"
               />
-              <TextInput
+              <MultiSelect
                 mt="md"
                 type={"text"}
                 label="Education qualification"
                 placeholder="PhD, Bachelor..."
                 required
-              />
-              <Select
-                required
-                label={"Experience"}
-                data={["Math", "Physics", "Biologie"]}
+                data={["Phd", "Bachelor", "Major"]}
                 searchable
+              />
+              <NumberInput
+                hideControls
+                required
+                label={"Years of experience"}
                 mt={"md"}
                 placeholder="Experience"
-              />{" "}
-              <Input.Wrapper label="Profile picture" mt={"md"}>
-                <InputImage />
-              </Input.Wrapper>
+              />
               <Select
                 required
                 label={"Location"}
@@ -148,22 +168,49 @@ export default function TutorSignup() {
                 searchable
                 mt={"md"}
                 placeholder="Location"
+                rightSection={<></>}
+                styles={{ rightSection: { pointerEvents: "none" } }}
               />
-            </Stepper.Step>
-          </Stepper>
-          <Group position="center" mt="xl">
-            <Button variant="default" onClick={prevStep}>
-              Back
-            </Button>
-            <Button
-              sx={{ background: "#3347B0" }}
-              color={"indigo"}
-              onClick={nextStep}
-            >
-              Next step
-            </Button>
-          </Group>
-        </Paper>
+              <Group position="center" mt="xl">
+                <Button variant="default" onClick={prevStep}>
+                  Back
+                </Button>
+                <Button
+                  sx={{ background: "#3347B0" }}
+                  color={"indigo"}
+                  onClick={nextStep}
+                >
+                  Next step
+                </Button>
+              </Group>
+            </Paper>
+          </Stepper.Step>
+          <Stepper.Step label="Third step" description="Add files">
+            <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+              <Text mb={48} mt={"xl"} align="center" weight={"600"} size="26px">
+                Add files
+              </Text>
+              <Input.Wrapper required label="Profile picture" mt={"md"}>
+                <InputImage />
+              </Input.Wrapper>
+              <Input.Wrapper required label="Certificate document" mt={"md"}>
+                <InputImage />
+              </Input.Wrapper>
+              <Group position="center" mt="xl">
+                <Button variant="default" onClick={prevStep}>
+                  Back
+                </Button>
+                <Button
+                  sx={{ background: "#3347B0" }}
+                  color={"indigo"}
+                  onClick={nextStep}
+                >
+                  Next step
+                </Button>
+              </Group>
+            </Paper>
+          </Stepper.Step>
+        </Stepper>
       </Container>
     </>
   );
@@ -203,7 +250,7 @@ function InputImage(props) {
           />
         </Dropzone.Reject>
         <Dropzone.Idle>
-          <IconPhoto size={50} stroke={1.5} />
+          <IconPhoto color="#86909D" size={50} stroke={1.5} />
         </Dropzone.Idle>
 
         <div>
