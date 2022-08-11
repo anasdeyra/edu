@@ -21,11 +21,11 @@ export default function Header() {
       <Group spacing={64}>
         <Navlinks />
         <Group spacing={"xl"}>
-          <Text size={"sm"} weight={"600"} to={"/"} component={Link}>
+          <Text size={"sm"} weight={"600"} to={"/login"} component={Link}>
             Login
           </Text>
           <Button
-            to={"/"}
+            to={"/signup"}
             component={Link}
             radius={"sm"}
             variant="white"

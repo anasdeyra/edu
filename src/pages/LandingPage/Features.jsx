@@ -42,7 +42,7 @@ export default function Features() {
       >
         <Overlay opacity={0} zIndex={0} blur={3} />
         <Button
-          to={"/"}
+          to={"/signup"}
           component={Link}
           radius={"sm"}
           color="indigo"

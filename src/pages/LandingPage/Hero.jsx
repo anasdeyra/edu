@@ -1,6 +1,6 @@
 import { Text, Stack, Group, Title, Overlay } from "@mantine/core";
 import { useElementSize } from "@mantine/hooks";
-import SearchBox from "../SearchBox";
+import SearchBox from "./SearchBox";
 
 export default function Hero() {
   const { ref, width } = useElementSize();

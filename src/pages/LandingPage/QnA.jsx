@@ -1,4 +1,4 @@
-import { Accordion, Box, Image, SimpleGrid, Text, Title } from "@mantine/core";
+import { Accordion, Box, SimpleGrid, Text, Title } from "@mantine/core";
 import React from "react";
 
 export default function QnA() {
