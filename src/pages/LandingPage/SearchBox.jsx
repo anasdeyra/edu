@@ -5,6 +5,8 @@ import {
   Select,
   Button,
   Text,
+  createStyles,
+  Box,
 } from "@mantine/core";
 import { forwardRef } from "react";
 import {
@@ -16,20 +18,32 @@ import {
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mantine/hooks";
 
+const useStyles = createStyles((t) => ({
+  wrapper: {
+    display: "flex",
+    background: "white",
+    alignSelf: "start",
+    borderRadius: "5px",
+    zIndex: 1,
+    flexFlow: "row",
+    [t.fn.smallerThan("md")]: {
+      flexFlow: "column",
+      gap: t.spacing.md,
+    },
+    alignItems: "stretch",
+  },
+  iputWrapper: {
+    display: "flex",
+    alignItems: "center",
+  },
+}));
+
 export default function SearchBox() {
   const isSmall = useMediaQuery("(max-width: 1000px)");
+  const { classes } = useStyles();
   return (
-    <Group
-      p={"xs"}
-      sx={{
-        background: "white",
-        alignSelf: "start",
-        borderRadius: "5px",
-        zIndex: 1,
-      }}
-      mt={48}
-    >
-      <Group>
+    <Box p={"xs"} className={classes.wrapper} mt={48}>
+      <Box className={classes.iputWrapper}>
         <Autocomplete
           p={0}
           variant="unstyled"
@@ -65,18 +79,18 @@ export default function SearchBox() {
           ]}
           size={isSmall ? "xs" : "md"}
         />
-      </Group>
+      </Box>
       <Button
         to={"/"}
         component={Link}
         radius={"sm"}
         color="indigo"
-        sx={{ background: "#3347B0", alignSelf: "start", flexGrow: "1" }}
+        sx={{ background: "#3347B0" }}
         size={isSmall ? "sm" : "xl"}
       >
         Find tutor
       </Button>
-    </Group>
+    </Box>
   );
 }
 
