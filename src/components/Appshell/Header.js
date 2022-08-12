@@ -94,6 +94,7 @@ export default function Header() {
       >
         {LINKS.map(({ label, link }, i) => (
           <NavLink
+            key={i}
             onClick={() => {
               setOpened(false);
             }}
