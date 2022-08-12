@@ -13,7 +13,6 @@ import {
   Input,
   useMantineTheme,
   Text,
-  NumberInput,
   Slider,
 } from "@mantine/core";
 import { Dropzone } from "@mantine/dropzone";
@@ -31,7 +30,7 @@ export default function TutorSignup() {
   const prevStep = () =>
     setActive((current) => (current > 0 ? current - 1 : current));
 
-  const [value, setValue] = useState(50);
+  const [value, setValue] = useState(5);
   return (
     <>
       <Container size={"sm"} my={72}>
@@ -161,7 +160,6 @@ export default function TutorSignup() {
                 <Slider
                   max={40}
                   min={0}
-                  hideControls
                   required
                   mt={"md"}
                   placeholder="Experience"
@@ -172,6 +170,7 @@ export default function TutorSignup() {
                     { value: 40, label: "40" },
                     { value: 30, label: "30" },
                     { value: 10, label: "10" },
+                    { value: 0, label: "0" },
                   ]}
                   styles={{
                     bar: { background: "#3347B0" },

@@ -11,30 +11,41 @@ import {
 } from "@mantine/core";
 import { FaAward, FaDollarSign, FaHeadset, FaLayerGroup } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function Features() {
+  const isSmall = useMediaQuery("(max-width: 1000px)");
   return (
-    <Stack sx={{ background: "#66FBD1" }} spacing={"xl"} py={144}>
-      <Stack px={"xl"} spacing={0}>
+    <Stack
+      sx={{ background: "#66FBD1" }}
+      spacing={"xl"}
+      py={isSmall ? 72 : 144}
+    >
+      <Stack px={isSmall ? "md" : "xl"} spacing={0}>
         <Text weight={500}>WHY CHOOSE US</Text>
-        <Title>Why learn with Mulang.</Title>
+        <Title>Why learn with My Tutor.</Title>
       </Stack>
-      <SimpleGrid px={"xl"} mt={48} spacing={"64px"} cols={2}>
+      <SimpleGrid
+        px={isSmall ? "md" : "xl"}
+        mt={48}
+        spacing={isSmall ? 32 : 64}
+        cols={isSmall ? 1 : 2}
+      >
         {FEATURES.map((f, i) => (
           <Feature {...f} key={i} />
         ))}
       </SimpleGrid>
       <Box
-        mt={128}
+        mt={isSmall ? 72 : 144}
         p={"xl"}
         sx={{
           background: `url(${process.env.PUBLIC_URL}/fb.jpg)`,
-          backgroundPosition: "0 -200px",
+          backgroundPosition: `0 ${isSmall ? "0" : "-200px"}`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           display: "flex",
-          height: "500px",
-          borderRadius: "5px",
+          height: isSmall ? "200px" : "500px",
+
           justifyContent: "center",
           alignItems: "center",
           position: "relative",
@@ -54,7 +65,7 @@ export default function Features() {
             },
             color: "white",
           }}
-          size="xl"
+          size={isSmall ? "lg" : "xl"}
           m={0}
         >
           Get your tutor
@@ -65,18 +76,19 @@ export default function Features() {
 }
 
 function Feature({ Icon, title, text }) {
+  const isSmall = useMediaQuery("(max-width: 1000px)");
   return (
-    <Group>
+    <Group align={"start"} noWrap>
       <ThemeIcon
         sx={{ color: "#66FBD1" }}
         color={"#000"}
         radius={"50%"}
-        size={64}
+        size={isSmall ? 48 : 64}
       >
-        <Icon size={32} />
+        <Icon size={isSmall ? 24 : 32} />
       </ThemeIcon>
       <Stack spacing={0}>
-        <Text size={26} weight={500}>
+        <Text size={isSmall ? 22 : 26} weight={500}>
           {title}
         </Text>
         <Text>{text}</Text>

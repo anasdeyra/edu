@@ -1,24 +1,26 @@
 import { Box, Text, Title, Stack, Overlay, Button } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 
 import { Link } from "react-router-dom";
 
 export default function JoinUs() {
+  const isSmall = useMediaQuery("(max-width: 1000px)");
   return (
-    <Box my={144}>
-      <Stack px={"xl"} spacing={0}>
+    <Box my={isSmall ? 72 : 144}>
+      <Stack px={isSmall ? "md" : "xl"} spacing={0}>
         <Text weight={500}>JOIN US</Text>
-        <Title>Become a tutor at Mulang</Title>
+        <Title>Become a tutor at My Tutor</Title>
       </Stack>
       <Box
-        mt={72}
-        p={"xl"}
+        mt={isSmall ? 48 : 72}
+        p={isSmall ? "md" : "xl"}
         sx={{
           background: `url(${process.env.PUBLIC_URL}/jb.jpg)`,
-          backgroundPosition: "0 -100px",
+          backgroundPosition: `0 ${isSmall ? "0" : "-100px"}`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           display: "flex",
-          height: "500px",
+          height: isSmall ? "200px" : "500px",
           justifyContent: "center",
           alignItems: "center",
           position: "relative",
@@ -36,7 +38,7 @@ export default function JoinUs() {
               background: "#4357C0",
             },
           }}
-          size="xl"
+          size={isSmall ? "lg" : "xl"}
           m={0}
         >
           Get started

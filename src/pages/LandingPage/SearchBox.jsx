@@ -14,8 +14,10 @@ import {
   FaVideo as FaCamera,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
 
 export default function SearchBox() {
+  const isSmall = useMediaQuery("(max-width: 1000px)");
   return (
     <Group
       p={"xs"}
@@ -32,12 +34,12 @@ export default function SearchBox() {
           p={0}
           variant="unstyled"
           radius={0}
-          icon={<FaBook size={24} />}
+          icon={<FaBook size={isSmall ? 16 : 24} />}
           placeholder="Subject"
           dropdownPosition="bottom"
           data={["Maths", "Physics", "Biologie", "Chimestry", "Art"]}
-          size="md"
-        ></Autocomplete>
+          size={isSmall ? "xs" : "md"}
+        />
         <Divider orientation="vertical" />
         <Select
           styles={{
@@ -53,7 +55,7 @@ export default function SearchBox() {
           p={0}
           variant="unstyled"
           radius={0}
-          icon={<FaMapMarkerAlt size={24} />}
+          icon={<FaMapMarkerAlt size={isSmall ? 16 : 24} />}
           placeholder="Cours location"
           dropdownPosition="bottom"
           itemComponent={ItemComponent}
@@ -61,16 +63,16 @@ export default function SearchBox() {
             { value: 1, label: "Online", Icon: FaCamera },
             { value: 2, label: "Near me", Icon: FaRadiation },
           ]}
-          size="md"
-        ></Select>
+          size={isSmall ? "xs" : "md"}
+        />
       </Group>
       <Button
         to={"/"}
         component={Link}
         radius={"sm"}
         color="indigo"
-        sx={{ background: "#3347B0", alignSelf: "start" }}
-        size="xl"
+        sx={{ background: "#3347B0", alignSelf: "start", flexGrow: "1" }}
+        size={isSmall ? "sm" : "xl"}
       >
         Find tutor
       </Button>
@@ -78,9 +80,12 @@ export default function SearchBox() {
   );
 }
 
-const ItemComponent = forwardRef(({ Icon, label, ...other }, ref) => (
-  <Group {...other} noWrap ref={ref}>
-    <Icon color={"#222"} size={24} />
-    <Text>{label}</Text>
-  </Group>
-));
+const ItemComponent = forwardRef(({ Icon, label, ...other }, ref) => {
+  const isSmall = useMediaQuery("(max-width: 1000px)");
+  return (
+    <Group {...other} noWrap ref={ref}>
+      <Icon color={"#222"} size={isSmall ? 16 : 24} />
+      <Text>{label}</Text>
+    </Group>
+  );
+});
