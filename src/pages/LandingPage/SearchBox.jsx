@@ -81,7 +81,7 @@ export default function SearchBox() {
         />
       </Box>
       <Button
-        to={"/"}
+        to={"/search"}
         component={Link}
         radius={"sm"}
         color="indigo"
