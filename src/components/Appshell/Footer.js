@@ -11,6 +11,8 @@ const useStyles = createStyles((t) => ({
     padding: `48px ${t.spacing.xl}px`,
     [t.fn.smallerThan("sm")]: {
       padding: `48px ${t.spacing.sm}px`,
+      flexFlow: "column",
+      gap: "1rem",
     },
   },
   logo: {
@@ -42,7 +44,7 @@ export default function Footer() {
         weight={"600"}
         size={"xl"}
       >
-        My Tutor
+        tutors street
       </Text>
       <Group spacing={64}>
         <Navlinks />

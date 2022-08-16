@@ -52,7 +52,7 @@ export default function Header() {
   return (
     <Box className={classes.header}>
       <Text to={"/"} component={Link} weight={"600"} className={classes.logo}>
-        My Tutor
+        tutors street
       </Text>
       <Group spacing={64}>
         <Navlinks className={classes.navlinks} />

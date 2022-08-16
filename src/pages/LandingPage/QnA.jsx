@@ -28,7 +28,7 @@ export default function QnA() {
           isSmall
             ? { display: "none" }
             : {
-                background: `url(${process.env.PUBLIC_URL}/q.jpg)`,
+                background: `url(${process.env.PUBLIC_URL}/images/q.jpg)`,
                 backgroundPosition: "0 -250px",
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
@@ -43,7 +43,7 @@ const QNA = [
   {
     panel:
       "sed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium,totam aperiam,eaque ipsaquae ab illoinventatis et quasi architecto beatae vitae dicta sunt expilicabo nemo enim ipsam.",
-    control: "How to find tutoring at My Tutor?",
+    control: "How to find tutoring at tutors street?",
   },
   {
     panel:

@@ -16,7 +16,7 @@ export default function Register() {
     <Container size={"xs"} my={72}>
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
         <Title mb={48} align="center" weigth="700">
-          Welcome to My Tutor
+          Welcome to tutors street
         </Title>
         <Group grow>
           <TextInput

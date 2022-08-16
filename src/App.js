@@ -4,6 +4,7 @@ import { ForgotPassword } from "./pages/auth/ForgotPassword";
 import Register from "./pages/auth/Register";
 import { Login } from "./pages/auth/Login";
 import TutorSignup from "./pages/auth/TurtorSignup";
+import TutorProfile from "./pages/TutorProfile/TutorProfile";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
       <Route path="/signup" element={<Register />} />
       <Route path="/login" element={<Login />} />
       <Route path="/tutor-signup" element={<TutorSignup />} />
+      <Route path="/tutor/:id" element={<TutorProfile />} />
     </Routes>
   );
 }

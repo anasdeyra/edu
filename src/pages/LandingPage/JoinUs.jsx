@@ -9,13 +9,13 @@ export default function JoinUs() {
     <Box my={isSmall ? 72 : 144}>
       <Stack px={isSmall ? "md" : "xl"} spacing={0}>
         <Text weight={500}>JOIN US</Text>
-        <Title>Become a tutor at My Tutor</Title>
+        <Title>Become a tutor at tutors street</Title>
       </Stack>
       <Box
         mt={isSmall ? 48 : 72}
         p={isSmall ? "md" : "xl"}
         sx={{
-          background: `url(${process.env.PUBLIC_URL}/jb.jpg)`,
+          background: `url(${process.env.PUBLIC_URL}/images/jb.jpg)`,
           backgroundPosition: `0 ${isSmall ? "0" : "-100px"}`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

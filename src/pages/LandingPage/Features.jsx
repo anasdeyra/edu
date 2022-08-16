@@ -23,7 +23,7 @@ export default function Features() {
     >
       <Stack px={isSmall ? "md" : "xl"} spacing={0}>
         <Text weight={500}>WHY CHOOSE US</Text>
-        <Title>Why learn with My Tutor.</Title>
+        <Title>Why learn with tutors street.</Title>
       </Stack>
       <SimpleGrid
         px={isSmall ? "md" : "xl"}
@@ -39,7 +39,7 @@ export default function Features() {
         mt={isSmall ? 72 : 144}
         p={"xl"}
         sx={{
-          background: `url(${process.env.PUBLIC_URL}/fb.jpg)`,
+          background: `url(${process.env.PUBLIC_URL}/images/fb.jpg)`,
           backgroundPosition: `0 ${isSmall ? "0" : "-200px"}`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

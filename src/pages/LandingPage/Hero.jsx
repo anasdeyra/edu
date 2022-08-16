@@ -8,11 +8,14 @@ const useStyles = createStyles((t) => ({
     [t.fn.smallerThan("sm")]: {
       padding: `${72}px ${t.spacing.sm}px`,
     },
-    background: `url(${process.env.PUBLIC_URL}/tb.jpg)`,
+    background: `url(${process.env.PUBLIC_URL}/images/tb.jpg)`,
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     position: "relative",
+    [t.fn.smallerThan("md")]: {
+      backgroundPositionX: "-800px",
+    },
   },
 }));
 
