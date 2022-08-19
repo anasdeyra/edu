@@ -19,7 +19,7 @@ const useStyles = createStyles((t) => ({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: `${t.spacing.sm}px ${t.spacing.xl}px`,
+    padding: `${t.spacing.sm}px ${120}px`,
     [t.fn.smallerThan("sm")]: {
       padding: `${t.spacing.sm}px ${t.spacing.sm}px`,
     },
@@ -52,17 +52,12 @@ export default function Header() {
   return (
     <Box className={classes.header}>
       <Text to={"/"} component={Link} weight={"600"} className={classes.logo}>
-        tutors street
+        Tutors street
       </Text>
-      <Group spacing={64}>
-        <Navlinks className={classes.navlinks} />
-        <Group spacing={isSmall ? "sm" : "xl"}>
-          <Text
-            size={isSmall ? "xs" : "sm"}
-            weight={"600"}
-            to={"/login"}
-            component={Link}
-          >
+      <Group className={classes.navlinks} spacing={40}>
+        <Navlinks />
+        <Group spacing={40}>
+          <Text size={isSmall ? "xs" : "sm"} to={"/login"} component={Link}>
             Login
           </Text>
           <Button

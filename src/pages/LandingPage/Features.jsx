@@ -21,12 +21,12 @@ export default function Features() {
       spacing={"xl"}
       py={isSmall ? 72 : 144}
     >
-      <Stack px={isSmall ? "md" : "xl"} spacing={0}>
+      <Stack px={isSmall ? "md" : 120} spacing={0}>
         <Text weight={500}>WHY CHOOSE US</Text>
         <Title>Why learn with tutors street.</Title>
       </Stack>
       <SimpleGrid
-        px={isSmall ? "md" : "xl"}
+        px={isSmall ? "md" : 120}
         mt={48}
         spacing={isSmall ? 32 : 64}
         cols={isSmall ? 1 : 2}
@@ -37,39 +37,46 @@ export default function Features() {
       </SimpleGrid>
       <Box
         mt={isSmall ? 72 : 144}
-        p={"xl"}
+        py={isSmall ? 72 : 144}
+        px={isSmall ? "md" : 120}
         sx={{
           background: `url(${process.env.PUBLIC_URL}/images/fb.jpg)`,
           backgroundPosition: `0 ${isSmall ? "0" : "-200px"}`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           display: "flex",
-          height: isSmall ? "200px" : "500px",
-
-          justifyContent: "center",
-          alignItems: "center",
           position: "relative",
         }}
       >
         <Overlay opacity={0} zIndex={0} blur={3} />
-        <Button
-          to={"/signup"}
-          component={Link}
-          radius={"sm"}
-          color="indigo"
-          sx={{
-            background: "#000",
-            zIndex: "1",
-            "&:hover": {
-              background: "#000",
-            },
-            color: "white",
-          }}
-          size={isSmall ? "lg" : "xl"}
-          m={0}
-        >
-          Get your tutor
-        </Button>
+        <Stack align={"start"} sx={{ zIndex: 1, color: "white" }}>
+          <Title>Hire a tutor now</Title>
+          <Text>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque
+            assumenda quod laboriosam tempora eum ullam et ad deleniti iste.
+            Aliquam nemo voluptatem illo omnis blanditiis, quidem facere
+            praesentium esse aspernatur.
+          </Text>
+          <Button
+            mt={"xl"}
+            to={"/signup"}
+            component={Link}
+            radius={"sm"}
+            color="indigo"
+            sx={{
+              background: "#3347B0",
+              zIndex: "1",
+              "&:hover": {
+                background: "#3347B0",
+              },
+              color: "white",
+            }}
+            size={isSmall ? "lg" : "xl"}
+            m={0}
+          >
+            Hire a tutor
+          </Button>
+        </Stack>
       </Box>
     </Stack>
   );
@@ -81,7 +88,7 @@ function Feature({ Icon, title, text }) {
     <Group align={"start"} noWrap>
       <ThemeIcon
         sx={{ color: "#66FBD1" }}
-        color={"#000"}
+        color={"#3347B0"}
         radius={"50%"}
         size={isSmall ? 48 : 64}
       >

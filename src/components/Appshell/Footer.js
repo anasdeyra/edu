@@ -1,18 +1,14 @@
-import { Box, createStyles, Text, Group } from "@mantine/core";
+import { Box, createStyles, Text, Group, Stack } from "@mantine/core";
 import { Link } from "react-router-dom";
 
 const useStyles = createStyles((t) => ({
   header: {
     background: "#66FBD1",
     color: "black",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: `48px ${t.spacing.xl}px`,
+
+    padding: `48px ${120}px`,
     [t.fn.smallerThan("sm")]: {
       padding: `48px ${t.spacing.sm}px`,
-      flexFlow: "column",
-      gap: "1rem",
     },
   },
   logo: {
@@ -36,7 +32,7 @@ const useStyles = createStyles((t) => ({
 export default function Footer() {
   const { classes } = useStyles();
   return (
-    <Box className={classes.header}>
+    <Stack spacing={"xl"} align={"center"} className={classes.header}>
       <Text
         className={classes.logo}
         to={"/"}
@@ -44,12 +40,13 @@ export default function Footer() {
         weight={"600"}
         size={"xl"}
       >
-        tutors street
+        Tutors street
       </Text>
       <Group spacing={64}>
         <Navlinks />
       </Group>
-    </Box>
+      <Text size={"sm"}>© 2022 Tutors street. All rights reserved.</Text>
+    </Stack>
   );
 }
 function Navlinks({ className }) {

@@ -45,7 +45,7 @@ export default function SearchPage() {
   );
 
   return (
-    <Box py={"xl"} px={isSmall ? "md" : "xl"}>
+    <Box mt={72} py={"xl"} px={isSmall ? "md" : 120}>
       <Grid columns={4}>
         {FILTER_BAR}
         {TUTORS_LIST}

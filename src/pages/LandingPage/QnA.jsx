@@ -4,13 +4,12 @@ import { useMediaQuery } from "@mantine/hooks";
 export default function QnA() {
   const isSmall = useMediaQuery("(max-width: 1000px)");
   return (
-    <SimpleGrid mb={isSmall ? 48 : 144} cols={isSmall ? 1 : 2}>
-      <Box
-        pr={isSmall ? "md" : 0}
-        pl={isSmall ? "md" : "xl"}
-        mb={isSmall ? 72 : 144}
-        mt={isSmall ? 48 : 72}
-      >
+    <SimpleGrid
+      px={isSmall ? "md" : 120}
+      mb={isSmall ? 48 : 144}
+      cols={isSmall ? 1 : 2}
+    >
+      <Box>
         <Text weight={500}>FREQUENTLY ASKED QUESTIONS</Text>
         <Title>Useful information</Title>
 

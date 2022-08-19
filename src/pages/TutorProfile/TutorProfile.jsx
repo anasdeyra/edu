@@ -6,7 +6,6 @@ import {
   Button,
   createStyles,
   Group,
-  Image,
   Spoiler,
   Stack,
   Text,
@@ -39,14 +38,14 @@ export default function TutorProfile() {
   const isSmall = useMediaQuery("(max-width: 1000px)");
 
   return (
-    <Box mt={"xl"} className={classes.wrapper}>
+    <Box mt={72} className={classes.wrapper}>
       <BookingModal close={close} opened={opened} />
-      <Stack px={isSmall ? "md" : "xl"} spacing={"xl"}>
+      <Stack px={isSmall ? "md" : 120} spacing={"xl"}>
         {isSmall ? (
           <Stack>
             <Group align={"start"}>
               <Avatar
-                radius={"50%"}
+                radius={"sm"}
                 size="xl"
                 src={
                   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
@@ -108,7 +107,7 @@ export default function TutorProfile() {
           <Group position="apart">
             <Group align={"start"}>
               <Avatar
-                radius={"50%"}
+                radius={"sm"}
                 size="xl"
                 src={
                   "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
@@ -191,18 +190,11 @@ export default function TutorProfile() {
           <Text weight={"bold"}>Qualifications:</Text>
           <Text>PhD, Bachelor, Master</Text>
         </Stack>
-        <Stack spacing={"xs"}>
-          <Text weight={"bold"}>Certificate:</Text>
-          <Image
-            sx={{ maxWidth: 500 }}
-            src={`${process.env.PUBLIC_URL}/images/certificate.jpg`}
-          />
-        </Stack>
       </Stack>
       <Stack
         mt={isSmall ? 72 : 128}
         py={isSmall ? 72 : 128}
-        px={isSmall ? "md" : "xl"}
+        px={isSmall ? "md" : 120}
         className={classes.reviews}
         spacing={"0"}
       >

@@ -4,7 +4,7 @@ import SearchBox from "./SearchBox";
 
 const useStyles = createStyles((t) => ({
   container: {
-    padding: `${144}px ${t.spacing.xl}px ${72}px ${t.spacing.xl}px`,
+    padding: `${144}px ${120}px ${72}px ${120}px`,
     [t.fn.smallerThan("sm")]: {
       padding: `${72}px ${t.spacing.sm}px`,
     },
@@ -13,9 +13,6 @@ const useStyles = createStyles((t) => ({
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     position: "relative",
-    [t.fn.smallerThan("md")]: {
-      backgroundPositionX: "-800px",
-    },
   },
 }));
 
@@ -37,13 +34,14 @@ export default function Hero() {
           maxWidth: 750,
           fontWeight: "900",
           zIndex: 1,
+          color: "#3347B0",
         }}
         order={1}
       >
         Hire the best tutors for you
       </Title>
       <Text
-        sx={{ width: width, zIndex: 1 }}
+        sx={{ width: width, zIndex: 1, color: "white" }}
         weight={500}
         size={isSmall ? "md" : "xl"}
       >
@@ -53,7 +51,7 @@ export default function Hero() {
 
       <SearchBox />
       <Box
-        px={isSmall ? 0 : 72}
+        px={0}
         sx={{
           color: "white",
           zIndex: 1,

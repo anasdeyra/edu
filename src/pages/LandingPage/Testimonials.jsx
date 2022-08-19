@@ -1,35 +1,21 @@
 import { Stack, Title, Text, Group, Avatar, Box } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
+import UsersReviews from "../TutorProfile/UsersReviews";
 
 export default function Testimonials() {
   const isSmall = useMediaQuery("(max-width: 1000px)");
   return (
     <Stack
       sx={{ background: "#3347B0", color: "white" }}
-      px={isSmall ? "md" : "xl"}
+      px={isSmall ? "md" : 120}
       py={isSmall ? 72 : 144}
     >
       <div>
         <Text weight={500}>TESTIMONIALS</Text>
-        <Title>What our Students Say</Title>
+        <Title mb={isSmall ? 48 : 72}>What our Students Say</Title>
       </div>
-      <Carousel
-        mt={"48px"}
-        slideSize={isSmall ? "100%" : "32%"}
-        height={200}
-        slideGap="md"
-        controlsOffset="xs"
-        slidesToScroll={isSmall ? 1 : 3}
-        align="center"
-        loop
-      >
-        {TESTEMONIALS.map((u, i) => (
-          <Carousel.Slide key={i}>
-            <UserCard {...u} />
-          </Carousel.Slide>
-        ))}
-      </Carousel>
+      <UsersReviews />
     </Stack>
   );
 }
