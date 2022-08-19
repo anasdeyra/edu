@@ -1,15 +1,14 @@
 import {
-  ActionIcon,
   Avatar,
   Badge,
   Box,
   Button,
   createStyles,
   Group,
-  Image,
   Spoiler,
   Stack,
   Text,
+  ThemeIcon,
   Title,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
@@ -39,19 +38,28 @@ export default function TutorProfile() {
   const isSmall = useMediaQuery("(max-width: 1000px)");
 
   return (
-    <Box mt={"xl"} className={classes.wrapper}>
+    <Box mt={48} className={classes.wrapper}>
       <BookingModal close={close} opened={opened} />
       <Stack px={isSmall ? "md" : "xl"} spacing={"xl"}>
         {isSmall ? (
           <Stack>
             <Group align={"start"}>
-              <Avatar
-                radius={"sm"}
-                size="xl"
-                src={
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
-                }
-              />
+              <Stack align={"center"} spacing={0}>
+                <Avatar
+                  radius={"sm"}
+                  size="xl"
+                  src={
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+                  }
+                />
+                <Text mt={"xs"} weight={"600"} size={"sm"}>
+                  20 $/h
+                </Text>
+                <Text size={"xs"} color="dimmed">
+                  3 lessons
+                </Text>
+              </Stack>
+
               <Stack spacing={0}>
                 <Text size={"xl"} weight={"bold"}>
                   John Doe
@@ -85,36 +93,34 @@ export default function TutorProfile() {
             <Stack spacing={"xs"}>
               <Group mt={"xs"} spacing={"xs"} align={"center"}>
                 <Text weight={"bold"}>Rating:</Text>
-                <Group spacing={"0"}>
-                  <ActionIcon color={"yellow"}>
-                    <FaStar />
-                  </ActionIcon>
-                  <ActionIcon color={"yellow"}>
-                    <FaStar />
-                  </ActionIcon>
-                  <ActionIcon color={"yellow"}>
-                    <FaStar />
-                  </ActionIcon>
-                  <ActionIcon color={"yellow"}>
-                    <FaStar />
-                  </ActionIcon>
-                  <ActionIcon variant="subtle">
-                    <FaStar />
-                  </ActionIcon>
+                <Group spacing={"4px"}>
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <ThemeIcon key={i} variant="subtle" color={"yellow"}>
+                      <FaStar />
+                    </ThemeIcon>
+                  ))}
                 </Group>
               </Group>
             </Stack>
           </Stack>
         ) : (
-          <Group position="apart">
+          <Group align={"start"} position="apart">
             <Group align={"start"}>
-              <Avatar
-                radius={"sm"}
-                size="xl"
-                src={
-                  "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
-                }
-              />
+              <Stack align={"center"} spacing={0}>
+                <Avatar
+                  radius={"sm"}
+                  size="xl"
+                  src={
+                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
+                  }
+                />
+                <Text mt={"xs"} weight={"600"} size={"sm"}>
+                  20 $/h
+                </Text>
+                <Text size={"xs"} color="dimmed">
+                  3 lessons
+                </Text>
+              </Stack>
               <Stack spacing={0}>
                 <Text size={"xl"} weight={"bold"}>
                   John Doe
@@ -141,7 +147,7 @@ export default function TutorProfile() {
             </Group>
 
             <Stack>
-              <Button onClick={open} mt={"md"} sx={{ background: "#3347B0" }}>
+              <Button onClick={open} sx={{ background: "#3347B0" }}>
                 Book a lesson
               </Button>
               <Button color={"indigo"} variant="light">
@@ -150,22 +156,12 @@ export default function TutorProfile() {
               <Stack spacing={"xs"}>
                 <Group mt={"xs"} spacing={"xs"} align={"center"}>
                   <Text weight={"bold"}>Rating:</Text>
-                  <Group spacing={"0"}>
-                    <ActionIcon color={"yellow"}>
-                      <FaStar />
-                    </ActionIcon>
-                    <ActionIcon color={"yellow"}>
-                      <FaStar />
-                    </ActionIcon>
-                    <ActionIcon color={"yellow"}>
-                      <FaStar />
-                    </ActionIcon>
-                    <ActionIcon color={"yellow"}>
-                      <FaStar />
-                    </ActionIcon>
-                    <ActionIcon variant="subtle">
-                      <FaStar />
-                    </ActionIcon>
+                  <Group spacing={"4px"}>
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <ThemeIcon key={i} variant="subtle" color={"yellow"}>
+                        <FaStar />
+                      </ThemeIcon>
+                    ))}
                   </Group>
                 </Group>
               </Stack>

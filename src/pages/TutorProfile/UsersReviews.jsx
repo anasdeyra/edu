@@ -1,5 +1,5 @@
 import { Carousel } from "@mantine/carousel";
-import { ActionIcon, Avatar, Box, Group, Text } from "@mantine/core";
+import { Avatar, Box, Group, Text, ThemeIcon } from "@mantine/core";
 import { FaStar } from "react-icons/fa";
 import { useMediaQuery } from "@mantine/hooks";
 
@@ -43,13 +43,13 @@ function UserCard({ name, text, image, rating }) {
           <Group spacing={0}>
             {[1, 2, 3, 4, 5].map((i) =>
               i <= rating ? (
-                <ActionIcon key={i} color={"yellow"}>
+                <ThemeIcon key={i} variant="subtle" color={"yellow"}>
                   <FaStar />
-                </ActionIcon>
+                </ThemeIcon>
               ) : (
-                <ActionIcon key={i} variant="subtle">
+                <ThemeIcon key={i} variant="subtle" color={"gray"}>
                   <FaStar />
-                </ActionIcon>
+                </ThemeIcon>
               )
             )}
           </Group>
