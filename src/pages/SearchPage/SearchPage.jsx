@@ -5,7 +5,16 @@ import TutorCard from "./TutorCard";
 import { useMediaQuery } from "@mantine/hooks";
 import Filters from "./Filters";
 
-const useStyles = createStyles((t) => ({}));
+const useStyles = createStyles((t) => ({
+  wrapper: {
+    background: t.colors.gray[0],
+  },
+  searchBox: {
+    background: "#fff",
+    boxShadow: t.shadows.xs,
+    borderRadius: t.radius.sm,
+  },
+}));
 
 export default function SearchPage() {
   const [filteredList, setFilteredList] = useState(TUTORS);
@@ -90,7 +99,10 @@ export default function SearchPage() {
   const TUTORS_LIST = (
     <Grid.Col span={isSmall ? 4 : 3}>
       <Stack>
-        <SearchBox searchName={searchName} />
+        <Box className={classes.searchBox}>
+          <SearchBox searchName={searchName} />
+        </Box>
+
         <Stack>
           {filteredList.map((props, i) => (
             <TutorCard key={i} {...props} />
@@ -101,7 +113,7 @@ export default function SearchPage() {
   );
 
   return (
-    <Box py={"xl"} px={isSmall ? "md" : "xl"}>
+    <Box className={classes.wrapper} py={"xl"} px={isSmall ? "md" : "xl"}>
       <Grid columns={4}>
         {FILTER_BAR}
         {TUTORS_LIST}

@@ -4,8 +4,9 @@ import { FaSearch } from "react-icons/fa";
 export default function SearchBox({ searchName }) {
   return (
     <TextInput
-      variant="filled"
+      variant="unstyled"
       icon={<FaSearch />}
+      size="md"
       placeholder="Search a tutor"
       onChange={(e) => {
         searchName(e.currentTarget.value);
