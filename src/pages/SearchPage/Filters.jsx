@@ -1,23 +1,68 @@
 import {
   Button,
   Input,
-  MultiSelect,
   NumberInput,
-  Paper,
   Select,
   Slider,
   Stack,
-  Text,
 } from "@mantine/core";
-import React from "react";
+import React, { useState } from "react";
 
-export default function Filters() {
+export default function Filters({
+  filterByLocation,
+  reset,
+  filterByExperience,
+  filterByQualifications,
+  filterByCurriculum,
+  filterByDistance,
+  filterBySubjects,
+}) {
+  //filters
+  const [location, setLocation] = useState(null);
+  const [experience, setExperience] = useState(null);
+  const [qualifications, setQualifications] = useState(null);
+  const [curriculum, setCurriculum] = useState(null);
+  const [distance, setDistance] = useState(null);
+  const [subjects, setSubjects] = useState(null);
+
+  //reset
+  function resetFillters() {
+    setLocation(null);
+    setExperience(null);
+    setQualifications(null);
+    setDistance(null);
+    setSubjects(null);
+    setCurriculum(null);
+    reset();
+  }
+
+  //submit
+  function submitFilters() {
+    filterByLocation(location);
+    filterByExperience(experience);
+    filterByQualifications(qualifications);
+    filterByCurriculum(curriculum);
+    filterByDistance(distance);
+    filterBySubjects(subjects);
+  }
+
   return (
     <Stack mt={"xl"}>
-      <MultiSelect
+      <Select
+        searchable
         label="Subjects"
         placeholder="Maths, Physics, Biologie.."
-        data={["PhD", "Master", "Bachelor"]}
+        data={[
+          "Maths",
+          "Physics",
+          "Biologie",
+          "Algebra",
+          "Arts",
+          "English",
+          "Danish",
+        ]}
+        onChange={setSubjects}
+        value={subjects}
       />
       <Select
         mt={"xl"}
@@ -25,29 +70,54 @@ export default function Filters() {
         placeholder="Choose a location"
         data={["tunisia", "India", "Poland", "Serbia"]}
         searchable
+        onChange={setLocation}
+        value={location}
       />
       <Input.Wrapper label="Max radius">
-        <Slider defaultValue={0} max={5000} />
+        <Slider
+          value={distance}
+          onChange={setDistance}
+          defaultValue={0}
+          max={5000}
+        />
       </Input.Wrapper>
 
-      <MultiSelect
+      <Select
+        value={qualifications}
+        searchable
         mt={"xl"}
         label="Qualifications"
         placeholder="PhD, Master, Bachelor.."
         data={["PhD", "Master", "Bachelor"]}
+        onChange={setQualifications}
       />
-      <MultiSelect
+      <Select
+        searchable
         label="Curriculum"
         placeholder="Choose a curriculum"
         data={["PhD", "Master", "Bachelor"]}
+        onChange={setCurriculum}
+        value={curriculum}
       />
       <NumberInput
         label="Minimum years of experiece"
         placeholder="Choose minimum years of experiece"
         hideControls
+        onChange={setExperience}
+        value={experience}
       />
-      <Button mt={"xl"} color={"indigo"} sx={{ background: "#3347B0" }}>
+      <Button
+        onClick={() => {
+          submitFilters();
+        }}
+        mt={"xl"}
+        color={"indigo"}
+        sx={{ background: "#3347B0" }}
+      >
         Filter
+      </Button>
+      <Button onClick={resetFillters} variant="default">
+        Reset
       </Button>
     </Stack>
   );

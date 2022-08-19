@@ -1,12 +1,4 @@
-import {
-  Box,
-  Button,
-  createStyles,
-  Grid,
-  Paper,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Box, createStyles, Grid, Paper, Stack, Text } from "@mantine/core";
 import { useState } from "react";
 import SearchBox from "./SearchBox";
 import TutorCard from "./TutorCard";
@@ -16,25 +8,81 @@ import Filters from "./Filters";
 const useStyles = createStyles((t) => ({}));
 
 export default function SearchPage() {
-  //filters
-  const [location, setLocation] = useState(null);
-  const [experience, setExperience] = useState(null);
-  const [qualifications, setQualifications] = useState([]);
-  const [distance, setDistance] = useState(null);
-  const [subjects, setSubjects] = useState([]);
   const [filteredList, setFilteredList] = useState(TUTORS);
+
+  //filters
+
+  //search name
+  function searchName(n) {
+    if (n === "" || n === null) return reset();
+    setFilteredList((fl) =>
+      fl.filter((tut) => tut.name.toLowerCase().startsWith(n.toLowerCase()))
+    );
+  }
+
+  //location filter
+  function filterByLocation(l) {
+    if (l === null) return;
+    setFilteredList((fl) =>
+      fl.filter((tut) => tut.location.toLowerCase() === l.toLowerCase())
+    );
+  }
+
+  //experience filter
+  function filterByExperience(e) {
+    if (e === null) return;
+    setFilteredList((fl) => fl.filter((tut) => tut.experience >= e));
+  }
+
+  //qualification filter
+  function filterByQualifications(q) {
+    if (q === null) return;
+    setFilteredList((fl) => fl.filter((tut) => tut.qualifications.includes(q)));
+  }
+
+  //curriculum filter
+  function filterByCurriculum(c) {
+    if (c === null) return;
+    setFilteredList((fl) => fl.filter((tut) => tut.curiculum.includes(c)));
+  }
+
+  //subjects filter
+  function filterBySubjects(s) {
+    if (s === null) return;
+    setFilteredList((fl) => fl.filter((tut) => tut.subjects.includes(s)));
+  }
+
+  //distance filter
+  function filterByDistance(d) {
+    if (d === null) return;
+    setFilteredList((fl) => fl.filter((tut) => tut.distance <= d));
+  }
 
   //styling
   const { classes } = useStyles();
   const isSmall = useMediaQuery("(max-width: 1000px)");
 
+  //rest to default list
+  function reset() {
+    setFilteredList(TUTORS);
+  }
+
+  const filtersProps = {
+    filterByLocation,
+    reset,
+    filterByExperience,
+    filterByQualifications,
+    filterByCurriculum,
+    filterByDistance,
+    filterBySubjects,
+  };
   //components
 
   const FILTER_BAR = !isSmall && (
     <Grid.Col span={1}>
       <Paper sx={{ height: "100%" }} shadow={"xs"} radius="sm" p={"md"}>
         <Text weight={"bold"}>Filters</Text>
-        <Filters />
+        <Filters {...filtersProps} />
       </Paper>
     </Grid.Col>
   );
@@ -42,7 +90,7 @@ export default function SearchPage() {
   const TUTORS_LIST = (
     <Grid.Col span={isSmall ? 4 : 3}>
       <Stack>
-        <SearchBox />
+        <SearchBox searchName={searchName} />
         <Stack>
           {filteredList.map((props, i) => (
             <TutorCard key={i} {...props} />
@@ -79,6 +127,7 @@ const TUTORS = [
     lessonsCount: 5,
     rating: 4,
     reviewsCount: 12,
+    curiculum: ["zzz", "zzz", "zzz"],
   },
   {
     name: "Fayza Duhi",
@@ -95,6 +144,7 @@ const TUTORS = [
     lessonsCount: 5,
     rating: 4,
     reviewsCount: 12,
+    curiculum: ["zzz", "zzz", "zzz"],
   },
   {
     name: "Lana Rock",
@@ -111,9 +161,10 @@ const TUTORS = [
     lessonsCount: 5,
     rating: 4,
     reviewsCount: 12,
+    curiculum: ["zzz", "zzz", "zzz"],
   },
   {
-    name: "",
+    name: "Akram Mag",
     picture: "",
     location: "India",
     experience: 5,
@@ -126,9 +177,10 @@ const TUTORS = [
     lessonsCount: 5,
     rating: 4,
     reviewsCount: 12,
+    curiculum: ["zzz", "zzz", "zzz"],
   },
   {
-    name: "",
+    name: "Muta Ryuhi",
     picture: "",
     location: "India",
     experience: 5,
@@ -141,5 +193,6 @@ const TUTORS = [
     lessonsCount: 5,
     rating: 4,
     reviewsCount: 12,
+    curiculum: ["zzz", "zzz", "zzz"],
   },
 ];
