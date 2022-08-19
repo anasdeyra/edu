@@ -1,4 +1,12 @@
-import { Box, createStyles, Grid, Paper, Stack, Text } from "@mantine/core";
+import {
+  Box,
+  Button,
+  createStyles,
+  Grid,
+  Paper,
+  Stack,
+  Text,
+} from "@mantine/core";
 import { useState } from "react";
 import SearchBox from "./SearchBox";
 import TutorCard from "./TutorCard";
@@ -65,6 +73,12 @@ const TUTORS = [
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 100,
     subjects: ["Maths", "Physics", "Biologie", "Algebra"],
+    hourly: 16,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In suscipit commodi ipsam quam, dolore velit aperiam hic fuga odit? Facere molestias, cumque iusto eligendi consequatur pariatur magni debitis omnis quos. ",
+    lessonsCount: 5,
+    rating: 4,
+    reviewsCount: 12,
   },
   {
     name: "Fayza Duhi",
@@ -75,6 +89,12 @@ const TUTORS = [
     qualifications: ["PhD"],
     distance: 1000,
     subjects: ["Arts"],
+    hourly: 16,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In suscipit commodi ipsam quam, dolore velit aperiam hic fuga odit? Facere molestias, cumque iusto eligendi consequatur pariatur magni debitis omnis quos. ",
+    lessonsCount: 5,
+    rating: 4,
+    reviewsCount: 12,
   },
   {
     name: "Lana Rock",
@@ -85,6 +105,12 @@ const TUTORS = [
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 650,
     subjects: ["English", "Danish"],
+    hourly: 16,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In suscipit commodi ipsam quam, dolore velit aperiam hic fuga odit? Facere molestias, cumque iusto eligendi consequatur pariatur magni debitis omnis quos. ",
+    lessonsCount: 5,
+    rating: 4,
+    reviewsCount: 12,
   },
   {
     name: "",
@@ -94,6 +120,12 @@ const TUTORS = [
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 100,
     subjects: ["Maths", "Physics", "Biologie", "Algebra"],
+    hourly: 16,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In suscipit commodi ipsam quam, dolore velit aperiam hic fuga odit? Facere molestias, cumque iusto eligendi consequatur pariatur magni debitis omnis quos. ",
+    lessonsCount: 5,
+    rating: 4,
+    reviewsCount: 12,
   },
   {
     name: "",
@@ -103,5 +135,11 @@ const TUTORS = [
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 100,
     subjects: ["Maths", "Physics", "Biologie", "Algebra"],
+    hourly: 16,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In suscipit commodi ipsam quam, dolore velit aperiam hic fuga odit? Facere molestias, cumque iusto eligendi consequatur pariatur magni debitis omnis quos. ",
+    lessonsCount: 5,
+    rating: 4,
+    reviewsCount: 12,
   },
 ];

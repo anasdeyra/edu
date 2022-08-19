@@ -52,11 +52,11 @@ export default function Header() {
   return (
     <Box className={classes.header}>
       <Text to={"/"} component={Link} weight={"600"} className={classes.logo}>
-        tutors street
+        Tutors street
       </Text>
       <Group spacing={64}>
         <Navlinks className={classes.navlinks} />
-        <Group spacing={isSmall ? "sm" : "xl"}>
+        <Group className={classes.navlinks} spacing={isSmall ? "sm" : "xl"}>
           <Text
             size={isSmall ? "xs" : "sm"}
             weight={"600"}
@@ -88,12 +88,37 @@ export default function Header() {
       <Drawer
         opened={isOpened}
         onClose={() => setOpened(false)}
-        title="Navigation links"
+        title={
+          <Text size={"xl"} weight={"700"}>
+            Navigation links
+          </Text>
+        }
         padding={"md"}
         position="right"
+        size={"full"}
       >
+        <NavLink
+          sx={{ fontWeight: "bold", color: "#3347B0" }}
+          onClick={() => {
+            setOpened(false);
+          }}
+          label={"Register"}
+          component={Link}
+          to={"/signup"}
+        />
+        <NavLink
+          sx={{ fontWeight: "bold" }}
+          onClick={() => {
+            setOpened(false);
+          }}
+          label={"Login"}
+          component={Link}
+          to={"/login"}
+          color="indigo"
+        />
         {LINKS.map(({ label, link }, i) => (
           <NavLink
+            sx={{ fontWeight: "500" }}
             key={i}
             onClick={() => {
               setOpened(false);
@@ -108,7 +133,7 @@ export default function Header() {
   );
 }
 
-function Navlinks({ className, dir }) {
+function Navlinks({ className }) {
   return (
     <Group className={className} spacing={40} sx={{ color: "white" }}>
       {LINKS.map(({ link, label }, i) => (

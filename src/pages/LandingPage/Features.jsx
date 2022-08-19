@@ -68,7 +68,7 @@ export default function Features() {
           size={isSmall ? "lg" : "xl"}
           m={0}
         >
-          Get your tutor
+          Hire a tutor
         </Button>
       </Box>
     </Stack>
