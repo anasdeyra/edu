@@ -48,7 +48,7 @@ export default function TutorCard({
               <Text size={"sm"}>{experience} years of experience</Text>
             </Group>
 
-            <Group no mt={"xs"}>
+            <Group noWrap mt={"xs"}>
               {subjects.map((s) => (
                 <Badge
                   key={s}
