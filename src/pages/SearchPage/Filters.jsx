@@ -14,7 +14,13 @@ import React from "react";
 export default function Filters() {
   return (
     <Stack mt={"xl"}>
+      <MultiSelect
+        label="Subjects"
+        placeholder="Maths, Physics, Biologie.."
+        data={["PhD", "Master", "Bachelor"]}
+      />
       <Select
+        mt={"xl"}
         label="Location"
         placeholder="Choose a location"
         data={["tunisia", "India", "Poland", "Serbia"]}
@@ -23,7 +29,9 @@ export default function Filters() {
       <Input.Wrapper label="Max radius">
         <Slider defaultValue={0} max={5000} />
       </Input.Wrapper>
+
       <MultiSelect
+        mt={"xl"}
         label="Qualifications"
         placeholder="PhD, Master, Bachelor.."
         data={["PhD", "Master", "Bachelor"]}

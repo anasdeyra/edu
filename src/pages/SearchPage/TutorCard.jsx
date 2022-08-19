@@ -45,7 +45,7 @@ export default function TutorCard({
           <Stack spacing={"0"} align={"center"}>
             <Avatar radius={"sm"} size="xl" src={picture} />
             <Text mt={"xs"} weight={"600"} size={"sm"}>
-              {hourly}$/h
+              {hourly} $/h
             </Text>
             <Text size={"xs"} color="dimmed">
               {lessonsCount} lessons
@@ -115,7 +115,7 @@ export default function TutorCard({
               )
             )}
           </Group>
-          <Text sx={{ alignSelf: "center" }} size={"sm"} weight={"bold"}>
+          <Text sx={{ alignSelf: "center" }} size={"sm"} weight={"600"}>
             {reviewsCount} reviews
           </Text>
         </Stack>
