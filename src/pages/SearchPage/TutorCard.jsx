@@ -61,7 +61,7 @@ export default function TutorCard({
         <Group align={"start"} noWrap>
           <Avatar radius={"sm"} size={isSmall ? "xl" : "144px"} src={picture} />
           <Stack spacing={0}>
-            <Group mb={"xs"} spacing={"xl"}>
+            <Group align={"end"} mb={"xs"} spacing={"xl"}>
               <Text
                 to={`/tutor/${name}`}
                 component={Link}
@@ -70,13 +70,12 @@ export default function TutorCard({
               >
                 {name}
               </Text>
-              <Image
-                radius={"xs"}
-                height={18}
-                width={28}
-                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${location}.svg`}
-              />
-              <MdVerified size={22} color="#3347B0" />
+              <Group spacing={4}>
+                <MdVerified size={22} color={"#00663F"} />
+                <Text size={"sm"} weight={"700"} color={"#00663F"}>
+                  Verified
+                </Text>
+              </Group>
             </Group>
             <Group mb={"xs"}>
               {subjects.map((s) => (
@@ -168,7 +167,12 @@ export default function TutorCard({
           <Avatar radius={"sm"} size={isSmall ? "xl" : "170px"} src={picture} />
 
           <Stack spacing={0}>
-            <Group position={isSmall && "apart"} mb={"xs"} spacing={"xl"}>
+            <Group
+              align={"end"}
+              position={isSmall && "apart"}
+              mb={"xs"}
+              spacing={"sm"}
+            >
               <Text
                 to={`/tutor/${name}`}
                 component={Link}
@@ -177,13 +181,13 @@ export default function TutorCard({
               >
                 {name}
               </Text>
-              <Image
-                radius={"xs"}
-                height={18}
-                width={28}
-                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${location}.svg`}
-              />
-              <MdVerified size={22} color="#3347B0" />
+
+              <Group spacing={4}>
+                <MdVerified size={22} color={"#00663F"} />
+                <Text size={"sm"} weight={"700"} color={"#00663F"}>
+                  Verified
+                </Text>
+              </Group>
             </Group>
             <Group mb={"xs"}>
               {subjects.map((s) => (

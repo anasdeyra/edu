@@ -129,7 +129,7 @@ export default function SearchPage() {
   return (
     <Box className={classes.wrapper} py={"xl"} px={isSmall ? "md" : "xl"}>
       <Box mt={72} mb={48}>
-        <Title sx={{ color: "#3347B0" }}>
+        <Title sx={{ color: "#00663F" }}>
           Online tutors & teachers for private lessons
         </Title>
         <Text color={"dimmed"}>

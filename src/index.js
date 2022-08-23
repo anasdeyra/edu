@@ -11,8 +11,8 @@ function Providers({ children }) {
     <MantineProvider
       theme={{
         colors: { brand: ["#3347B0"] },
-        fontFamily: "inter, Sans-serif",
-        headings: { fontFamily: "inter, Sans-serif" },
+        fontFamily: "Segoe UI, Sans-serif",
+        headings: { fontFamily: "Segoe UI, Sans-serif" },
       }}
       withGlobalStyles
       withNormalizeCSS
