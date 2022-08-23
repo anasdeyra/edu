@@ -13,7 +13,7 @@ import {
   Paper,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { FaMapMarkerAlt, FaBusinessTime, FaStar } from "react-icons/fa";
+import { FaHeart, FaEnvelope } from "react-icons/fa";
 import BookingModal from "./BookingModal";
 import { useMediaQuery } from "@mantine/hooks";
 import UsersReviews from "./UsersReviews";
@@ -26,6 +26,7 @@ import About from "./About";
 import Subjects from "./Subjects";
 import WorkExperience from "./WorkExperience";
 import Education from "./Education";
+import MessageModal from "./MessageModal";
 
 const useStyles = createStyles((t) => ({
   wrapper: {
@@ -55,9 +56,11 @@ export default function TutorProfile({
   const [opened, { close, open }] = useDisclosure();
   const isSmall = useMediaQuery("(max-width: 1000px)");
   const [spoiler, setSpoiler] = useState(true);
+  const [messageOpened, messageModalHandlers] = useDisclosure();
 
   return (
     <Box mt="72px">
+      <MessageModal close={messageModalHandlers.close} opened={messageOpened} />
       <Group
         mx={isSmall ? "md" : "72px"}
         noWrap
@@ -144,11 +147,35 @@ export default function TutorProfile({
           </Stack>
         </Group>
         <Stack sx={{ width: "250px" }} spacing={"xs"}>
+          <Stack spacing={0} align="end">
+            <Text color={"#666"} weight={"600"} size={"28px"}>
+              ${hourly}
+            </Text>
+            <Text size={"xs"} color="dimmed">
+              Per hour
+            </Text>
+          </Stack>
           <Button size="md" onClick={open} sx={{ background: "#3347B0" }}>
             Book trial lesson
           </Button>
-          <Button size="md" color={"indigo"} variant="light">
+          <Button
+            leftIcon={<FaEnvelope />}
+            size="md"
+            color={"indigo"}
+            variant="light"
+            onClick={() => {
+              messageModalHandlers.open();
+            }}
+          >
             Message
+          </Button>
+          <Button
+            leftIcon={<FaHeart />}
+            size="md"
+            color={"indigo"}
+            variant="light"
+          >
+            Add to my list
           </Button>
         </Stack>
       </Group>

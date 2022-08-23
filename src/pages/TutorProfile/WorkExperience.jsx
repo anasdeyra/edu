@@ -29,7 +29,7 @@ function ExperienceCard({ year, body, location, role }) {
       <Box>
         <Text weight={600}>{location}</Text>
         <Text mt={4}>{role}</Text>
-        <Text mt={"md"} color="#666">
+        <Text mt={"xs"} color="#666">
           {body}
         </Text>
       </Box>
