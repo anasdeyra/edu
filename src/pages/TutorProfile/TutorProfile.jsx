@@ -5,17 +5,27 @@ import {
   Button,
   createStyles,
   Group,
-  Spoiler,
   Stack,
   Text,
-  ThemeIcon,
+  Tabs,
   Title,
+  Anchor,
+  Paper,
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { FaMapMarkerAlt, FaBusinessTime, FaStar } from "react-icons/fa";
 import BookingModal from "./BookingModal";
 import { useMediaQuery } from "@mantine/hooks";
 import UsersReviews from "./UsersReviews";
+import { useState } from "react";
+import { FaGraduationCap } from "react-icons/fa";
+import { IoLanguage as FaLanguage } from "react-icons/io5";
+import { MdVerified } from "react-icons/md";
+import { Link } from "react-router-dom";
+import About from "./About";
+import Subjects from "./Subjects";
+import WorkExperience from "./WorkExperience";
+import Education from "./Education";
 
 const useStyles = createStyles((t) => ({
   wrapper: {
@@ -32,177 +42,164 @@ const useStyles = createStyles((t) => ({
   },
 }));
 
-export default function TutorProfile() {
+export default function TutorProfile({
+  name = "Lana Rock",
+  job = "English teacher",
+  hourly = 20,
+  title = "Certified TEFL Tutor",
+  subjects = ["English", "Danish"],
+  description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. In suscipit commodi ipsam quam, dolore velit aperiam hic fuga odit? Facere molestias, cumque iusto eligendi consequatur pariatur magni debitis omnis quos.",
+  picture = "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=600",
+}) {
   const { classes } = useStyles();
   const [opened, { close, open }] = useDisclosure();
   const isSmall = useMediaQuery("(max-width: 1000px)");
+  const [spoiler, setSpoiler] = useState(true);
 
   return (
-    <Box mt={48} className={classes.wrapper}>
-      <BookingModal close={close} opened={opened} />
-      <Stack px={isSmall ? "md" : "xl"} spacing={"xl"}>
-        {isSmall ? (
-          <Stack>
-            <Group align={"start"}>
-              <Stack align={"center"} spacing={0}>
-                <Avatar
-                  radius={"sm"}
-                  size="xl"
-                  src={
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
-                  }
-                />
-                <Text mt={"xs"} weight={"600"} size={"sm"}>
-                  20 $/h
-                </Text>
-                <Text size={"xs"} color="dimmed">
-                  3 lessons
-                </Text>
-              </Stack>
-
-              <Stack spacing={0}>
-                <Text size={"xl"} weight={"bold"}>
-                  John Doe
-                </Text>
-                <Group className={classes.infoGroup} spacing={"4px"}>
-                  <FaMapMarkerAlt />
-                  <Text size={"sm"}>Delhi, India</Text>
-                </Group>
-
-                <Group className={classes.infoGroup} spacing={"4px"}>
-                  <FaBusinessTime />
-                  <Text size={"sm"}>5 years of experience</Text>
-                </Group>
-
-                <Group mt={"xs"}>
-                  <Badge sx={{ color: "#3347B0" }} size="xs" color={"indigo"}>
-                    Maths
-                  </Badge>
-                  <Badge sx={{ color: "#3347B0" }} size="xs" color={"indigo"}>
-                    Algebra
-                  </Badge>
-                </Group>
-              </Stack>
-            </Group>
-            <Button onClick={open} mt={"md"} sx={{ background: "#3347B0" }}>
-              Book a lesson
-            </Button>{" "}
-            <Button color={"indigo"} variant="light">
-              Message
-            </Button>
-            <Stack spacing={"xs"}>
-              <Group mt={"xs"} spacing={"xs"} align={"center"}>
-                <Text weight={"bold"}>Rating:</Text>
-                <Group spacing={"4px"}>
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <ThemeIcon key={i} variant="subtle" color={"yellow"}>
-                      <FaStar />
-                    </ThemeIcon>
-                  ))}
-                </Group>
-              </Group>
-            </Stack>
-          </Stack>
-        ) : (
-          <Group align={"start"} position="apart">
-            <Group align={"start"}>
-              <Stack align={"center"} spacing={0}>
-                <Avatar
-                  radius={"sm"}
-                  size="xl"
-                  src={
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80"
-                  }
-                />
-                <Text mt={"xs"} weight={"600"} size={"sm"}>
-                  20 $/h
-                </Text>
-                <Text size={"xs"} color="dimmed">
-                  3 lessons
-                </Text>
-              </Stack>
-              <Stack spacing={0}>
-                <Text size={"xl"} weight={"bold"}>
-                  John Doe
-                </Text>
-                <Group className={classes.infoGroup} spacing={"4px"}>
-                  <FaMapMarkerAlt />
-                  <Text size={"sm"}>Delhi, India</Text>
-                </Group>
-
-                <Group className={classes.infoGroup} spacing={"4px"}>
-                  <FaBusinessTime />
-                  <Text size={"sm"}>5 years of experience</Text>
-                </Group>
-
-                <Group mt={"xs"}>
-                  <Badge sx={{ color: "#3347B0" }} size="xs" color={"indigo"}>
-                    Maths
-                  </Badge>
-                  <Badge sx={{ color: "#3347B0" }} size="xs" color={"indigo"}>
-                    Algebra
-                  </Badge>
-                </Group>
-              </Stack>
-            </Group>
-
-            <Stack>
-              <Button onClick={open} sx={{ background: "#3347B0" }}>
-                Book a lesson
-              </Button>
-              <Button color={"indigo"} variant="light">
-                Message
-              </Button>
-              <Stack spacing={"xs"}>
-                <Group mt={"xs"} spacing={"xs"} align={"center"}>
-                  <Text weight={"bold"}>Rating:</Text>
-                  <Group spacing={"4px"}>
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <ThemeIcon key={i} variant="subtle" color={"yellow"}>
-                        <FaStar />
-                      </ThemeIcon>
-                    ))}
-                  </Group>
-                </Group>
-              </Stack>
-            </Stack>
-          </Group>
-        )}
-
-        <Stack mt={isSmall ? 24 : 48} spacing={"xs"}>
-          <Text weight={"bold"}>About:</Text>
-          <Text>
-            <Spoiler
-              styles={{
-                control: { fontWeight: "600", fontSize: "14px", color: "#AAA" },
-              }}
-              showLabel="Show more"
-              hideLabel="Show less"
-            >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-              tempora iusto ipsum modi quos, odit accusamus accusantium possimus
-              iste doloribus eaque omnis sunt quam ullam blanditiis
-              exercitationem rerum sed non.
-            </Spoiler>
-          </Text>
-        </Stack>
-        <Stack spacing={"xs"}>
-          <Text weight={"bold"}>Qualifications:</Text>
-          <Text>PhD, Bachelor, Master</Text>
-        </Stack>
-      </Stack>
-      <Stack
-        mt={isSmall ? 72 : 128}
-        py={isSmall ? 72 : 128}
-        px={isSmall ? "md" : "xl"}
-        className={classes.reviews}
-        spacing={"0"}
+    <Box mt="72px">
+      <Group
+        mx={isSmall ? "md" : "72px"}
+        noWrap
+        align={"start"}
+        position="apart"
       >
-        <Title mb={isSmall ? 24 : 48} sx={{ color: "white" }}>
-          Reviews
-        </Title>
-        <UsersReviews />
-      </Stack>
+        <Group noWrap align={"start"}>
+          <Avatar radius={"sm"} size={isSmall ? "xl" : "170px"} src={picture} />
+
+          <Stack spacing={0}>
+            <Group
+              align={"center"}
+              position={isSmall && "apart"}
+              mb={"xs"}
+              spacing={"sm"}
+            >
+              <Text
+                to={`/tutor/${name}`}
+                component={Link}
+                size={isSmall ? "lg" : "xl"}
+                weight={"bold"}
+              >
+                {name}
+              </Text>
+
+              <Group spacing={4}>
+                <MdVerified size={22} color={"#00B628"} />
+                <Text size={"sm"} weight={"700"} color={"#00B628"}>
+                  Verified
+                </Text>
+              </Group>
+            </Group>
+            <Group mb={"xs"}>
+              {subjects.map((s) => (
+                <Badge
+                  key={s}
+                  sx={{ color: "#3347B0" }}
+                  size="xs"
+                  color={"indigo"}
+                >
+                  {s}
+                </Badge>
+              ))}
+            </Group>
+            <Box component="span" sx={{ maxWidth: 600 }}>
+              <Text
+                sx={
+                  spoiler
+                    ? {
+                        height: "40px",
+                        overflow: "hidden",
+                      }
+                    : { height: "auto" }
+                }
+                size={"xs"}
+                weight={"bold"}
+              >
+                {title} -{" "}
+                <Text weight={"500"} component="span" mt={"xs"} size={"xs"}>
+                  {description}
+                </Text>
+              </Text>
+              <Anchor
+                weight={"bold"}
+                size={"xs"}
+                component={Text}
+                color="indigo"
+                onClick={() => {
+                  spoiler ? setSpoiler(false) : setSpoiler(true);
+                }}
+              >
+                {spoiler ? "Read more" : "Hide"}
+              </Anchor>
+            </Box>
+            <Group mt={"xs"} className={classes.infoGroup} spacing={"4px"}>
+              <FaGraduationCap />
+              <Text size={"xs"}>{job}</Text>
+            </Group>
+
+            <Group className={classes.infoGroup} spacing={"4px"}>
+              <FaLanguage />
+              <Text size={"xs"}> Speaks english (andvanced)</Text>
+            </Group>
+          </Stack>
+        </Group>
+        <Stack sx={{ width: "250px" }} spacing={"xs"}>
+          <Button size="md" onClick={open} sx={{ background: "#3347B0" }}>
+            Book trial lesson
+          </Button>
+          <Button size="md" color={"indigo"} variant="light">
+            Message
+          </Button>
+        </Stack>
+      </Group>
+
+      <Tabs
+        styles={{
+          tabsList: { border: "none", margin: isSmall ? "48px 12px" : "72px" },
+          panel: {
+            background: "#f3f3f3",
+            padding: `48px ${isSmall ? "12px" : "72px"}`,
+          },
+          tab: {
+            fontWeight: "bold",
+            color: "#666",
+            "&:hover": { background: "none", border: "none" },
+            "&[data-active]": {
+              borderColor: "#3347B0",
+              color: "#666",
+              "&:hover": {
+                background: "none",
+
+                borderBottom: "2px solid #3347B0",
+              },
+            },
+          },
+        }}
+        mt={72}
+        defaultValue="about"
+      >
+        <Tabs.List>
+          <Tabs.Tab value="about">About</Tabs.Tab>
+          <Tabs.Tab value="education">Education</Tabs.Tab>
+          <Tabs.Tab value="work experience">Work experience</Tabs.Tab>
+          <Tabs.Tab value="subjects">Subjects</Tabs.Tab>
+        </Tabs.List>
+
+        <Tabs.Panel value="about" pt="xs">
+          <About body={description} />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="education" pt="xs">
+          <Education />
+        </Tabs.Panel>
+
+        <Tabs.Panel value="work experience" pt="xs">
+          <WorkExperience />
+        </Tabs.Panel>
+        <Tabs.Panel value="subjects" pt="xs">
+          <Subjects />
+        </Tabs.Panel>
+      </Tabs>
     </Box>
   );
 }

@@ -71,8 +71,8 @@ export default function TutorCard({
                 {name}
               </Text>
               <Group spacing={4}>
-                <MdVerified size={22} color={"#00663F"} />
-                <Text size={"sm"} weight={"700"} color={"#00663F"}>
+                <MdVerified size={22} color={"#00B628"} />
+                <Text size={"sm"} weight={"700"} color={"#00B628"}>
                   Verified
                 </Text>
               </Group>
@@ -183,8 +183,8 @@ export default function TutorCard({
               </Text>
 
               <Group spacing={4}>
-                <MdVerified size={22} color={"#00663F"} />
-                <Text size={"sm"} weight={"700"} color={"#00663F"}>
+                <MdVerified size={22} color={"#00B628"} />
+                <Text size={"sm"} weight={"700"} color={"#00B628"}>
                   Verified
                 </Text>
               </Group>
