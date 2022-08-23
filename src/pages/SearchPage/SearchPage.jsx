@@ -1,18 +1,31 @@
-import { Box, createStyles, Grid, Paper, Stack, Text } from "@mantine/core";
+import {
+  Box,
+  createStyles,
+  Grid,
+  Group,
+  Paper,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import { useState } from "react";
 import SearchBox from "./SearchBox";
 import TutorCard from "./TutorCard";
 import { useMediaQuery } from "@mantine/hooks";
 import Filters from "./Filters";
+import SortBox from "./SortBox";
 
 const useStyles = createStyles((t) => ({
   wrapper: {
     background: t.colors.gray[0],
   },
   searchBox: {
-    background: "#fff",
-    boxShadow: t.shadows.xs,
-    borderRadius: t.radius.sm,
+    display: "flex",
+    justifyContent: "end",
+    gap: "1rem",
+    [t.fn.smallerThan("md")]: {
+      flexFlow: "column-reverse",
+    },
   },
 }));
 
@@ -25,7 +38,7 @@ export default function SearchPage() {
   function searchName(n) {
     if (n === "" || n === null) return reset();
     setFilteredList((fl) =>
-      fl.filter((tut) => tut.name.toLowerCase().startsWith(n.toLowerCase()))
+      fl.filter((tut) => tut.name.toLowerCase().search(n.toLowerCase()))
     );
   }
 
@@ -100,6 +113,7 @@ export default function SearchPage() {
     <Grid.Col span={isSmall ? 4 : 3}>
       <Stack>
         <Box className={classes.searchBox}>
+          <SortBox />
           <SearchBox searchName={searchName} />
         </Box>
 
@@ -114,6 +128,16 @@ export default function SearchPage() {
 
   return (
     <Box className={classes.wrapper} py={"xl"} px={isSmall ? "md" : "xl"}>
+      <Box mt={72} mb={48}>
+        <Title sx={{ color: "#3347B0" }}>
+          Online tutors & teachers for private lessons
+        </Title>
+        <Text color={"dimmed"}>
+          Looking for an online tutor? ABc is the leading online language
+          learning platform worldwide. You can choose from 110 teachers with an
+          average rating of 4.9 out of 5 stars given by 90632 customers
+        </Text>
+      </Box>
       <Grid columns={4}>
         {FILTER_BAR}
         {TUTORS_LIST}
@@ -128,7 +152,7 @@ const TUTORS = [
     name: "Anas Deyra",
     picture:
       "https://images.pexels.com/photos/2269872/pexels-photo-2269872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    location: "Tunis, Tunisia",
+    location: "TN",
     experience: 5,
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 100,
@@ -140,12 +164,14 @@ const TUTORS = [
     rating: 4,
     reviewsCount: 12,
     curiculum: ["zzz", "zzz", "zzz"],
+    title: "Certified TEFL Tutor",
+    job: "English teacher",
   },
   {
     name: "Fayza Duhi",
     picture:
       "https://images.pexels.com/photos/943084/pexels-photo-943084.jpeg?auto=compress&cs=tinysrgb&w=600",
-    location: "Beirut, Lebanon",
+    location: "LB",
     experience: 2,
     qualifications: ["PhD"],
     distance: 1000,
@@ -157,12 +183,14 @@ const TUTORS = [
     rating: 4,
     reviewsCount: 12,
     curiculum: ["zzz", "zzz", "zzz"],
+    title: "Certified TEFL Tutor",
+    job: "English teacher",
   },
   {
     name: "Lana Rock",
     picture:
       "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
-    location: "United Kingdom",
+    location: "GB",
     experience: 4,
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 650,
@@ -174,11 +202,13 @@ const TUTORS = [
     rating: 4,
     reviewsCount: 12,
     curiculum: ["zzz", "zzz", "zzz"],
+    title: "Certified TEFL Tutor",
+    job: "English teacher",
   },
   {
     name: "Akram Mag",
     picture: "",
-    location: "India",
+    location: "IN",
     experience: 5,
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 100,
@@ -190,11 +220,13 @@ const TUTORS = [
     rating: 4,
     reviewsCount: 12,
     curiculum: ["zzz", "zzz", "zzz"],
+    title: "Certified TEFL Tutor",
+    job: "English teacher",
   },
   {
     name: "Muta Ryuhi",
     picture: "",
-    location: "India",
+    location: "IN",
     experience: 5,
     qualifications: ["PhD", "Masters", "Bachelor"],
     distance: 100,
@@ -206,5 +238,7 @@ const TUTORS = [
     rating: 4,
     reviewsCount: 12,
     curiculum: ["zzz", "zzz", "zzz"],
+    title: "Certified TEFL Tutor",
+    job: "English teacher",
   },
 ];
