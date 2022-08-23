@@ -5,7 +5,7 @@ export default function SearchBox({ searchName }) {
   return (
     <TextInput
       sx={{ flexGrow: 1 }}
-      variant="filled"
+      variant="unstyled"
       icon={<FaSearch />}
       size="md"
       placeholder="Search a tutor"

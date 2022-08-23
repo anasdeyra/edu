@@ -20,12 +20,9 @@ const useStyles = createStyles((t) => ({
     background: t.colors.gray[0],
   },
   searchBox: {
-    display: "flex",
-    justifyContent: "end",
-    gap: "1rem",
-    [t.fn.smallerThan("md")]: {
-      flexFlow: "column-reverse",
-    },
+    background: "white",
+    boxShadow: t.shadows.xs,
+    borderRadius: t.radius.sm,
   },
 }));
 
@@ -113,7 +110,6 @@ export default function SearchPage() {
     <Grid.Col span={isSmall ? 4 : 3}>
       <Stack>
         <Box className={classes.searchBox}>
-          <SortBox />
           <SearchBox searchName={searchName} />
         </Box>
 
