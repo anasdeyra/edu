@@ -165,7 +165,7 @@ export default function TutorCard({
       <BookingModal close={close} opened={opened} />
       <Group noWrap align={"start"} position="apart">
         <Group noWrap align={"start"}>
-          <Avatar radius={"sm"} size={isSmall ? "xl" : "144px"} src={picture} />
+          <Avatar radius={"sm"} size={isSmall ? "xl" : "170px"} src={picture} />
 
           <Stack spacing={0}>
             <Group position={isSmall && "apart"} mb={"xs"} spacing={"xl"}>
