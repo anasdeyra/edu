@@ -61,7 +61,7 @@ export default function TutorCard({
         <Group align={"start"} noWrap>
           <Avatar radius={"sm"} size={isSmall ? "xl" : "144px"} src={picture} />
           <Stack spacing={0}>
-            <Group align={"end"} mb={"xs"} spacing={"xl"}>
+            <Group align={"center"} mb={"xs"} spacing={"xl"}>
               <Text
                 to={`/tutor/${name}`}
                 component={Link}
@@ -168,7 +168,7 @@ export default function TutorCard({
 
           <Stack spacing={0}>
             <Group
-              align={"end"}
+              align={"center"}
               position={isSmall && "apart"}
               mb={"xs"}
               spacing={"sm"}
