@@ -102,7 +102,7 @@ export default function SearchPage() {
 
   const FILTER_BAR = !isSmall && (
     <Grid.Col span={1}>
-      <Paper sx={{ height: "100%" }} shadow={"xs"} radius="sm" p={"md"}>
+      <Paper pb={"xl"} shadow={"xs"} radius="sm" p={"md"}>
         <Text weight={"bold"}>Filters</Text>
         <Filters {...filtersProps} />
       </Paper>
